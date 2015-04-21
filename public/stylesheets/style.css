@@ -38,13 +38,13 @@ a {
 
 .block__container {
 	/* position */
-	width:calc(32% - 30px);
+	width: calc(32% - 30px);
 	margin:0.5%;
-	float:left;
 
 	/* display */
 	padding:15px;
 	background-color:white;
+	visibility: visible;
 
 	/* other */
 	border: 1px solid #e5e5e5;
