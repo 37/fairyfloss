@@ -22,12 +22,12 @@ a {
 .block {
 	/* position */
 	width:100%;
+	float:left;
 
 	/* display */
-	padding:50 0px;
+	padding: 15px 0px;
 
 	/* other */
-	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
 
