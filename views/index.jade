@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  h1 Fairyfloss
-  p Drag and drop to your hearts content.
+	h1 Fairyfloss
+	p Drag and drop to your hearts content.
 
-block content
-  h1= title
-  p Welcome to #{title}
-
-block content
-  h1= title
-  p Welcome to #{title}
+.container
+	h3 Elements
+	.block
+		.block__container
+			h4 Checkboxes
+			.input(type='checkbox', checked=false)
+			.input(type='checkbox', checked=true)
