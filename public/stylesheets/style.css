@@ -1,6 +1,8 @@
 body {
 	padding: 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	color: #4F4F4F;
+	float:left;
 }
 
 a {
@@ -25,16 +27,19 @@ a {
 	float:left;
 
 	/* display */
-	padding: 15px 0px;
-	background-color:#efefef;
-
+	padding-bottom:0.5%;
 	/* other */
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #efefef;
 }
+
+/* ============================================================
+			Block container CSS for sample elements
+==============================================================*/
 
 .block__container {
 	/* position */
-	width:33.33%;
+	width:calc(32% - 30px);
+	margin:0.5%;
 	float:left;
 
 	/* display */
@@ -42,7 +47,7 @@ a {
 	background-color:white;
 
 	/* other */
-	border: 1px solid black;
+	border: 1px solid #e5e5e5;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -50,4 +55,48 @@ a {
 
 .block__container h4 { 
 	margin-top:0;
+}
+
+.block__container input,
+.block__container textarea,
+.block__container label { 
+	float:left;
+	padding:0 10px;
+	min-height:40px;
+	line-height:40px;
+	font-size:16px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.block__container input[type="text"],
+.block__container textarea { 
+	width:calc(100% - 20px);
+}
+
+.block__container input[type="file"]{
+	line-height:16px;
+}
+
+/* ============================================================
+			Formspace container CSS for dynamic form
+==============================================================*/
+
+.formspace {
+	
+}
+
+/* ============================================================
+			Spacer CSS for clearing element alignment
+==============================================================*/
+
+.clearline {
+	clear:both;
+	margin:5px 0;
+	border-bottom:1px solid #efefef;
+}
+
+.clear {
+	clear:both;
 }
