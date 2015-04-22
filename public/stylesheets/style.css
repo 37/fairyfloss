@@ -38,12 +38,14 @@ a {
 
 .block__container {
 	/* position */
-	width: calc(32% - 30px);
+	float:left;
 	margin:0.5%;
 
 	/* display */
+	width: calc(32% - 30px);
+	height: 150px;
 	padding:15px;
-	background-color:white;
+	background-color: rgb(252, 252, 252);
 	visibility: visible;
 
 	/* other */
@@ -75,8 +77,27 @@ a {
 	width:calc(100% - 20px);
 }
 
-.block__container input[type="file"]{
+.block__container input[type="file"] {
 	line-height:16px;
+}
+
+.sortable-placeholder {
+	/* position */
+	float:left;
+	margin:0.5%;
+
+	/* display */
+	width: calc(32% - 30px);
+	height: 150px;
+	padding:15px;
+	background-color: transparent;
+	visibility: visible;
+
+	/* other */
+	border: 1px dashed #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 /* ============================================================
@@ -84,9 +105,22 @@ a {
 ==============================================================*/
 
 .formspace {
-	
+	float:left;
+	width: calc(60% - 100px);
+	margin: 10px 20%;
+	padding:50px;
+	min-height:300px;
+	background-color: rgba(247, 23, 236, 0.1);
+	border-radius: 5px;
 }
 
+.formspace .block__container {
+	/* position */
+
+	/* display */
+	width:calc(99% - 30px);
+	background-color: #fff;
+}
 /* ============================================================
 			Spacer CSS for clearing element alignment
 ==============================================================*/

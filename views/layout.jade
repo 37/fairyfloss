@@ -5,7 +5,16 @@ html
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.2.js')
 		script(type='text/javascript', src='/javascripts/elementheights.js')
-		script(type='text/javascript', src='/javascripts/form-manipulate.js')
+		script(type='text/javascript', src='/javascripts/jquery.sortable.js')
 		
 	body
 		block content
+
+	script.
+		$('#sortable, #form_sortable').sortable({
+			connectWith: '.connected'
+		});
+
+		$('#sortable,').sortable().bind('sortupdate', function() {
+			//Triggered when the user stopped sorting and the DOM position has changed.
+		});
