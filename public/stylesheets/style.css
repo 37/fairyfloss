@@ -1,4 +1,6 @@
 body {
+	width:calc(100% - 100px);
+	margin: 0;
 	padding: 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: #4F4F4F;
@@ -31,6 +33,29 @@ a {
 	/* other */
 	border-bottom: 1px solid #efefef;
 }
+
+/* ============================================================
+			Column CSS
+==============================================================*/
+
+.column13 {
+	/* position */
+	float: left;
+
+	/* display */
+	width: 30%;
+	background-color:#FCFCFC;
+	padding-bottom: 40px;
+}
+
+.column23 {
+	/* position */
+	float: left;
+	/* display */
+	width: 70%;
+	background-color:#FCFCFC;
+}
+
 
 /* ============================================================
 			Block container CSS for sample elements
@@ -105,22 +130,28 @@ a {
 ==============================================================*/
 
 .formspace {
+	/* position */
 	float:left;
 	width: calc(60% - 100px);
+	min-height:300px;
+
+	/* display */
 	margin: 10px 20%;
 	padding:50px;
-	min-height:300px;
+
+	/* other */
 	background-color: rgba(247, 23, 236, 0.1);
 	border-radius: 5px;
 }
 
 .formspace .block__container {
 	/* position */
+	width:calc(99% - 30px);
+	height: auto!important;
 
 	/* display */
-	width:calc(99% - 30px);
 	background-color: #fff;
-	height: auto!important;
+
 }
 
 .formspace .block__container h4{
@@ -139,4 +170,43 @@ a {
 
 .clear {
 	clear:both;
+}
+
+
+/* ============================================================
+			Elementbox CSS
+==============================================================*/
+
+.elementbox {
+
+}
+
+.elementbox__button {
+	/* position */
+	float:left;
+	width: calc(100% - (42px));
+	margin-top:0;
+	margin-bottom: 5px;
+
+	/* display */
+	background-color:white;
+	border: 2px solid #efefef;
+	padding-left:10px;
+	/* other */
+	cursor: pointer;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.elementbox__button i.fa.fa-plus{
+	float:left;
+	margin-left: 20px;
+	margin-right: 20px;
+	line-height: 40px;
+}
+
+.inneraccordion {
+	padding:0!important;
+	width:90%;
+	float:right;
 }

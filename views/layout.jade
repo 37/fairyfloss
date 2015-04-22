@@ -2,18 +2,14 @@ doctype html
 html
 	head
 		title= title
+		link(rel='stylesheet', href='/stylesheets/jquery-ui.css')
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.2.js')
+		script(type='text/javascript', src='/javascripts/jquery-ui.js')
 		script(type='text/javascript', src='/javascripts/jquery.sortable.js')
-		
+
 	body
 		block content
 
-	script.
-		$('#sortable, #form_sortable').sortable({
-			connectWith: '.connected'
-		});
-
-		$('#sortable,').sortable().bind('sortupdate', function() {
-			//Triggered when the user stopped sorting and the DOM position has changed.
-		});
+	

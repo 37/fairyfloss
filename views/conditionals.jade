@@ -1,0 +1,86 @@
+extends layout
+
+block content
+	h1 Fairyfloss
+	p Click and customise conditionals to your hearts content.
+	.clearline
+
+	h3 Demo
+	
+	.column13
+		h4 Elements
+		#elementbox.accordion
+			h3.elementbox__button Input Fields
+			div.accordion(class='inneraccordion')
+				h3.elementbox__button Textbox
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Textarea
+				div
+					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Checkbox
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Dropdown list
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Upload
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+			h3.elementbox__button Static fields
+			div.accordion.inneraccordion
+				h3.elementbox__button Title
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Content text
+				div
+					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Table
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button Images
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+				h3.elementbox__button List
+				div
+					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+					button(onClick='#') Add!
+
+			h3.elementbox__button Add Section
+			div
+				p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+				button(onClick='#') Add!
+
+
+
+	.column23
+		.formbox
+			h4 Form
+
+	script.
+		$(function() {
+			$(".accordion").accordion({
+				active: false,
+				animate: 200,
+				collapsible: true,
+				heightStyle: "content"
+			});
+		});
