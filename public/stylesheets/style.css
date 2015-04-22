@@ -120,6 +120,12 @@ a {
 	/* display */
 	width:calc(99% - 30px);
 	background-color: #fff;
+	height: auto!important;
+}
+
+.formspace .block__container h4{
+	/* display */
+	display: none;
 }
 /* ============================================================
 			Spacer CSS for clearing element alignment
