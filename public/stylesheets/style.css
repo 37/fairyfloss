@@ -206,10 +206,9 @@ a {
 }
 
 
-.section .checkbox-title {
+.section .checkbox-element {
 
 	/* position */
-	width: calc(50% - 20px);
 	padding: 0 10px;
 
 	/* other */
@@ -217,6 +216,18 @@ a {
 	font-size: 16px;
 	border: 0;
 	background-color: #efefef;
+}
+
+.section .checkbox-title {
+
+	/* position */
+	width: calc(50% - 20px);
+}
+
+.section .checkbox-content {
+
+	/* position */
+	width: calc(100% - 100px);
 }
 
 .section .settings-button {
@@ -272,9 +283,18 @@ a {
 
 	/* position */
 	width: 40px;
+	float:left;
 
 	/* other */
 	text-align: center;
+}
+
+.section .checkbox-container {
+
+}
+
+.section .checkbox-container .checkbox-line {
+	margin-top:5px;
 }
 
 /* ============================================================
