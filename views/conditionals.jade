@@ -47,16 +47,22 @@ block content
 				h3.elementbox__button Title
 				div
 					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick='#') Add!
+					button(onClick="add_static('section0', 'text', 'title', 'text-title', 'pencil', '#')") Add!
 
 				h3.elementbox__button Content text
 				div
 					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
-					button(onClick='#') Add!
+					button(onClick="add_static('section0', 'textarea', 'content', 'text-content', 'pencil', '#')") Add!
 
 				h3.elementbox__button Table
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
+				- var grid = 0
+				- var col1 = [0, 1]
+				div.table-generator
+					while grid < 36
+						.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_static('section0', 'table', 'content', 'text-content', 'pencil', '#')")
+						- grid++
+
+					
 					button(onClick='#') Add!
 
 				h3.elementbox__button Images
