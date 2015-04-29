@@ -15,17 +15,17 @@ block content
 				h3.elementbox__button Textbox
 				div
 					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick='#') Add!
+					button(onClick="add_textbox('section0')") Add!
 
 				h3.elementbox__button Textarea
 				div
 					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
-					button(onClick='#') Add!
+					button(onClick="add_textarea('section0')") Add!
 
 				h3.elementbox__button Checkbox
 				div
 					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick='#') Add!
+					button(onClick="add_checkbox_base('section0')") Add!
 
 				h3.elementbox__button Dropdown list
 				div
@@ -72,8 +72,9 @@ block content
 
 
 	.column23
-		.formbox
-			h4 Form
+		h4 Form
+		#formbox
+			#section0.section
 
 	script.
 		$(function() {

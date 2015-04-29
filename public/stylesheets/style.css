@@ -130,6 +130,7 @@ a {
 ==============================================================*/
 
 .formspace {
+
 	/* position */
 	float:left;
 	width: calc(60% - 100px);
@@ -158,6 +159,124 @@ a {
 	/* display */
 	display: none;
 }
+
+/* ============================================================
+			Formbox CSS
+==============================================================*/
+
+#formbox {
+	width: calc(100% - 80px);
+	padding: 40px;
+}
+
+.section {
+
+	/* position */
+	width: calc(100% - 30px);
+	padding: 15px;
+
+	/* display */
+	background-color: white;
+
+	/* other */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    0px 0px 8px 0px rgba(50, 50, 50, 0.35);
+	box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.35);
+}
+
+.element-container {
+	margin-bottom: 15px;
+}
+
+.section .text-input {
+
+	/* position */
+	padding: 0 10px;
+	width: calc(100% - 60px);
+	max-width: calc(100% - 60px);
+
+	/* other */
+	line-height: 40px;
+	font-size: 16px;
+	border: 0;
+	background-color: #efefef;
+}
+
+
+.section .checkbox-title {
+
+	/* position */
+	width: calc(50% - 20px);
+	padding: 0 10px;
+
+	/* other */
+	line-height: 40px;
+	font-size: 16px;
+	border: 0;
+	background-color: #efefef;
+}
+
+.section .settings-button {
+
+	/* position */
+	width: 40px;
+	float: right;
+
+	/* other */
+	text-align: center;
+}
+
+.section .form-button {
+
+	/* position */
+	height: 40px;
+
+	/* display */
+	background-color: transparent;
+
+	/* other */
+	line-height: 40px;
+	font-size: 16px;
+	border: none;
+
+}
+
+.section .add-checkbox-button {
+
+	/* position */
+	width: calc(50% - 20px);
+	padding: 0 10px;
+	float:right;
+
+	/* other */
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	border: 2px solid #e5e5e5;
+	border-radius: 3px;
+}
+
+.section .minus-button {
+
+	/* position */
+	width: 40px;
+
+	/* other */
+	text-align: center;
+}
+
+.section .checkbox-icon {
+
+	/* position */
+	width: 40px;
+
+	/* other */
+	text-align: center;
+}
+
 /* ============================================================
 			Spacer CSS for clearing element alignment
 ==============================================================*/
@@ -206,8 +325,23 @@ a {
 	line-height: 40px;
 }
 
+.ui-accordion-header {
+	background-color: rgb(150, 203, 255);
+}
+
 .inneraccordion {
 	padding:0!important;
 	width:90%;
 	float:right;
+}
+
+.inneraccordion .ui-accordion-header {
+	margin-top:5px;
+}
+
+.inneraccordion .ui-accordion-content {
+	background-color:white;
+	background-color: white;
+	border: 1px solid #efefef;
+	border-top: none;
 }
