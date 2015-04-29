@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: hotpink;
+  color: lightpink;
 }
 
 .container {
@@ -189,6 +189,8 @@ a {
 
 .element-container {
 	margin-bottom: 15px;
+	border: 3px solid lightpink;
+	padding: 10px;
 }
 
 .section .text-input {
@@ -206,7 +208,7 @@ a {
 }
 
 
-.section .checkbox-element {
+.section .option-element {
 
 	/* position */
 	padding: 0 10px;
@@ -218,16 +220,18 @@ a {
 	background-color: #efefef;
 }
 
-.section .checkbox-title {
+.section .option-title {
 
 	/* position */
-	width: calc(50% - 20px);
+	width: calc(50% - 40px);
+	margin-right:20px;
 }
 
-.section .checkbox-content {
+.section .option-content {
 
 	/* position */
-	width: calc(100% - 100px);
+	width: calc(50% - 80px);
+	float:left;
 }
 
 .section .settings-button {
@@ -255,7 +259,7 @@ a {
 
 }
 
-.section .add-checkbox-button {
+.section .add-option-button {
 
 	/* position */
 	width: calc(50% - 20px);
@@ -266,8 +270,12 @@ a {
 	text-align: center;
 	line-height: 40px;
 	font-size: 16px;
-	border: 2px solid #e5e5e5;
+	border: transparent;
 	border-radius: 3px;
+}
+
+.add-option-button i.fa.fa-plus {
+  margin-right: 10px;
 }
 
 .section .minus-button {
@@ -279,7 +287,7 @@ a {
 	text-align: center;
 }
 
-.section .checkbox-icon {
+.section .option-icon {
 
 	/* position */
 	width: 40px;
@@ -289,11 +297,11 @@ a {
 	text-align: center;
 }
 
-.section .checkbox-container {
+.section .option-container {
 
 }
 
-.section .checkbox-container .checkbox-line {
+.section .option-container .option-line {
 	margin-top:5px;
 }
 
