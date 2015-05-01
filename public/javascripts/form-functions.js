@@ -223,6 +223,22 @@ function add_radio(elementName){
 // 			**END TO-BE BATCHED FUNCTIONS
 // ======================================================================================
 
+function add_uploader(elementName){
+
+	var newdiv = document.createElement('div');
+
+	newdiv.className = "option-line";
+
+	newdiv.innerHTML = '<div id="mockup-dropzone" class="dropzone customdrop"></div>' +
+						'<input type="hidden" required="required" name="data[' + addincount + '][0]" value="file-upload"/>' +
+						'<button id="element-settings' + addincount + '" type="button" onclick="#" class="form-button minus-button">' +
+							'<i class="fa fa-minus"></i>' +
+						'</button>' +
+						'<div class="spacer"></div>';
+
+	document.getElementById(elementName).appendChild(newdiv);
+	$("div#mockup-dropzone").dropzone({ url: "/file/post", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
+}
 
 // ======================================================================================
 // 			Static element functions || **END INPUT GENERATOR FUNCTIONS
@@ -252,6 +268,50 @@ function add_static(elementName, buildtype, displaytype, class_modifier, icon, s
 						</button>';
 
 	document.getElementById(elementName).appendChild(newdiv);
+
+	addincount++;
+}
+
+function add_table(elementName, tablespecs, displaytype, class_modifier, icon, settings_action){
+
+	var newdiv = document.createElement('div');
+	newdiv.className = "element-container";
+
+	for(y = 0; y < 6; y++){
+		for(x = 0; x < 6; x++){
+			if (((y * 6) + x) == tablespecs){
+				var ty = y + 1;
+				var tx = x + 1;
+			}
+		}
+	}
+
+	for(i = 0; i < ty; i++) {
+		for(j = 0; j < tx; j++){
+			var boxid = tableref[i][j];
+			var element_html = '<table class="dynamic-table">';
+			for (row = 0; row < (i + 1); row++) {
+				element_html += '<tr>'
+				
+				for (col = 0; col < (j + 1); col++) {
+					element_html += '<td class="sortable" style="width:' + (100 / (j + 1)) + '%; padding: ' + (50 / (j + 1)) + '% 0;"></td>'
+				}
+
+				element_html += '</tr>'
+			}
+
+			element_html += '</table>';
+			newdiv.innerHTML = element_html +
+							'<input type="hidden" required="required" name="data[' + addincount + '][1]" value="' + displaytype + '" />' +
+							'<input type="hidden" required="required" name="data[' + addincount + '][2]" value="' + elementName + '" />' +
+							'<button id="element-settings' + addincount + '" type="button" onclick="' + settings_action + '" class="form-button settings-button">' +
+								'<i class="fa fa-cog"></i>' +
+							'</button>' +
+							'<div class="spacer"></div>';
+
+			document.getElementById(elementName).appendChild(newdiv);
+		}
+	}
 
 	addincount++;
 }
