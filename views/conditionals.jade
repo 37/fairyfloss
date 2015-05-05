@@ -7,54 +7,51 @@ block content
 
 	h3 Demo
 	
-	.column13
+	.column13.accordion
 		h4 Elements
-		#elementbox.accordion
-			h3.elementbox__button Input Fields
-			div.accordion(class='inneraccordion')
-				h3.elementbox__button Textbox
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_textbox('section0')") Add!
+		#elementbox.accordion-section
+			a.elementbox__button.accordion-section-title(href="#accordion-inputs") Input Fields
+				i.fa.fa-plus.float-right
+			#accordion-inputs.accordion-section-content
+				button(onClick="add_textbox('section0')")
+					i.fa.fa-pencil
+					p Textbox
 
-				h3.elementbox__button Textarea
-				div
-					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
-					button(onClick="add_textarea('section0')") Add!
+				button(onClick="add_textarea('section0')")
+					i.fa.fa-pencil-square-o
+					p Textarea
 
-				h3.elementbox__button Checkbox
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_checkbox_base('section0')") Add!
+				button(onClick="add_checkbox_base('section0')")
+					i.fa.fa-square
+					p Checkbox
 
-				h3.elementbox__button Radio
-				div
-					p A radio is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_radio_base('section0')") Add!
+				button(onClick="add_radio_base('section0')")
+					i.fa.fa-dot-circle-o
+					p Radio
 
-				h3.elementbox__button Dropdown list
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_dropdown_base('section0')") Add!
+				button(onClick="add_dropdown_base('section0')")
+					i.fa.fa-bars
+					p Dropdown
 
-				h3.elementbox__button Upload
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_uploader('section0')") Add!
+				button(onClick="add_uploader('section0')")
+					i.fa.fa-cloud-upload
+					p Upload
 
-			h3.elementbox__button Static fields
-			div.accordion.inneraccordion
-				h3.elementbox__button Title
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_static('section0', 'text', 'title', 'text-title', 'pencil', '#')") Add!
+			a.elementbox__button.accordion-section-title(href="#accordion-static") Static fields
+				i.fa.fa-plus.float-right
+			#accordion-static.accordion-section-content
+				button(onClick="add_static('section0', 'text', 'title', 'text-title', 'pencil', '#')")
+					i.fa.fa-header
+					p Title
 
-				h3.elementbox__button Content text
-				div
-					p A textarea is like a heavy-weight textbox, it's for your multi-line responses. Great for things that require explaining with more than a few words.
-					button(onClick="add_static('section0', 'textarea', 'content', 'text-content', 'pencil', '#')") Add!
+				button(onClick="add_static('section0', 'textarea', 'content', 'text-content', 'pencil', '#')")
+					i.fa.fa-info
+					p text
 
-				h3.elementbox__button Table
+				button.elementbox__button 
+					i.fa.fa-table
+					p Table
+				.clear
 				- var grid = 0
 				- var col1 = [0, 1]
 				div.table-generator
@@ -62,37 +59,26 @@ block content
 						.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_table('section0', '#{grid}', 'table', 'text-content', 'pencil', '#')")
 						- grid++
 
-					
-					button(onClick='#') Add!
+				button(onClick="add_file('section0')")
+					i.fa.fa-picture-o
+					p Images
 
-				h3.elementbox__button Images
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick="add_uploader('section0')") Add!
+				button(onClick="add_list_base('section0')") 
+					i.fa.fa-list
+					p List
 
-				h3.elementbox__button List
-				div
-					p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-					button(onClick='#') Add!
-
-			h3.elementbox__button Add Section
-			div
-				p A textbox is your standard input field. Want to collect a name or some basic-ass information? A textbox has your back. Coming soon, checkbox for pre-validition settings.
-				button(onClick='#') Add!
+			a.elementbox__button.accordion-section-title(href="#accordion-section") Add Section
+				i.fa.fa-plus.float-right
+			#accordion-section.accordion-section-content
+				button(onClick='#')
+					i.fa.fa-plus-square-o
+					p New Section
 
 
 
 	.column23
 		h4 Form
 		#formbox
-			#section0.section
+			#section0.section.accordion
 
-	script.
-		$(function() {
-			$(".accordion").accordion({
-				active: false,
-				animate: 200,
-				collapsible: true,
-				heightStyle: "content"
-			});
-		});
+	script(type='text/javascript', src='/javascripts/jquery.accordion.js')
