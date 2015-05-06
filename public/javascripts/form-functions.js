@@ -2,7 +2,7 @@
 // 			Global variables
 // ======================================================================================
 
-var addincount = 0;
+var addincount = 1;
 var sectioncount = 1;
 
 var tableref = [
@@ -17,14 +17,31 @@ var tableref = [
 var uniqator = 9000;
 
 // ======================================================================================
+// 			Global important functions
+// ======================================================================================
+
+Element.prototype.remove = function() {
+	this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+	for(var i = 0, len = this.length; i < len; i++) {
+		if(this[i] && this[i].parentElement) {
+			this[i].parentElement.removeChild(this[i]);
+		}
+	}
+}
+
+
+// ======================================================================================
 // 			Input generator functions
 // ======================================================================================
 
 
 function add_textbox(elementName){
 	var newdiv = document.createElement('div');
+	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "element-container accordion-section";
-	newdiv.id = "container" + addincount
+	newdiv.id = "container" + addincount;
 	newdiv.innerHTML = '<input type="text" placeholder="Enter your default text here." required="required" name="data[' + addincount + '][0]" class="input text-input" /> \
 						<input type="hidden" required="required" name="data[' + addincount + '][1]" value="text" /> \
 						<input type="hidden" required="required" name="data[' + addincount + '][2]" value="' + elementName + '" /> \
@@ -41,6 +58,8 @@ function add_textbox(elementName){
 
 function add_textarea(elementName){
 	var newdiv = document.createElement('div');
+	var element_identifier = "'container" + addincount + "'";
+	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 	newdiv.innerHTML = '<textarea placeholder="Enter your default text here." required="required" name="data[' + addincount + '][0]" class="input text-input"></textarea> \
 							<input type="hidden" required="required" name="data[' + addincount + '][1]" value="textarea" /> \
@@ -63,9 +82,9 @@ function add_textarea(elementName){
 function add_checkbox_base(elementName){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'container" + addincount + "'";
 	var checkquot = "'checkbox" + addincount + "'";
-
+	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML = '<input type="text" placeholder="Enter your checkbox title here." required="required" name="data[' + addincount + '][0]" class="input option-element option-title" /> \
@@ -92,8 +111,9 @@ function add_checkbox_base(elementName){
 function add_checkbox(elementName, datacount){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'line" + uniqator + "'";
 	newdiv.className = "option-line";
+	newdiv.id = "line" + uniqator;
 
 	newdiv.innerHTML = '<div class="form-button option-icon"> \
 							<i class="fa fa-square"></i> \
@@ -103,7 +123,7 @@ function add_checkbox(elementName, datacount){
 							<i class="fa fa-chevron-left"></i> \
 						</div> \
 						<input id="b' + uniqator + '" type="text" placeholder="Checkbox value" required="required" name="data[' + datacount + '][3]" class="input option-element option-content" /> \
-						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button minus-button"> \
+						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button"> \
 							<i class="fa fa-trash-o"></i> \
 						</button>';
 
@@ -115,9 +135,9 @@ function add_checkbox(elementName, datacount){
 function add_dropdown_base(elementName){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'container" + addincount + "'";
 	var checkquot = "'dropdown" + addincount + "'";
-
+	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML = '<input type="text" placeholder="Enter your dropdown title here." required="required" name="data[' + addincount + '][0]" class="input option-element option-title" /> \
@@ -144,8 +164,9 @@ function add_dropdown_base(elementName){
 function add_dropdown(elementName, datacount){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'line" + uniqator + "'";
 	newdiv.className = "option-line";
+	newdiv.id = "line" + uniqator;
 
 	newdiv.innerHTML = '<div class="form-button option-icon"> \
 							<i class="fa fa-bars"></i> \
@@ -155,7 +176,7 @@ function add_dropdown(elementName, datacount){
 							<i class="fa fa-chevron-left"></i> \
 						</div> \
 						<input id="b' + uniqator + '" type="text" placeholder="Dropdown value" required="required" name="data[' + datacount + '][3]" class="input option-element option-content" /> \
-						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button minus-button"> \
+						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button"> \
 							<i class="fa fa-trash-o"></i> \
 						</button>';
 
@@ -167,9 +188,9 @@ function add_dropdown(elementName, datacount){
 function add_radio_base(elementName){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'container" + addincount + "'";
 	var checkquot = "'radio" + addincount + "'";
-
+	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML = '<input type="text" placeholder="Enter your radio button title here." required="required" name="data[' + addincount + '][0]" class="input option-element option-title" /> \
@@ -196,8 +217,9 @@ function add_radio_base(elementName){
 function add_radio(elementName, datacount){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'line" + uniqator + "'";
 	newdiv.className = "option-line";
+	newdiv.id = "line" + uniqator;
 
 	newdiv.innerHTML = '<div class="form-button option-icon"> \
 							<i class="fa fa-dot-circle-o"></i> \
@@ -207,7 +229,7 @@ function add_radio(elementName, datacount){
 							<i class="fa fa-chevron-left"></i> \
 						</div> \
 						<input id="b' + uniqator + '" type="text" placeholder="Radio value" required="required" name="data[' + datacount + '][3]" class="input option-element option-content" /> \
-						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button minus-button"> \
+						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button"> \
 							<i class="fa fa-trash-o"></i> \
 						</button>';
 
@@ -224,7 +246,8 @@ function add_radio(elementName, datacount){
 function add_uploader(elementName){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'container" + addincount + "'";
+	newdiv.id = "container" + addincount;
 	newdiv.className = "upload-container accordion-section";
 
 	newdiv.innerHTML = '<div id="mockup-dropzone" class="dropzone customdrop"></div>' +
@@ -251,7 +274,9 @@ function add_uploader(elementName){
 function add_static(elementName, buildtype, displaytype, class_modifier, icon, settings_action){
 
 	var newdiv = document.createElement('div');
+	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "element-container accordion-section";
+	newdiv.id = "container" + addincount;
 		var element_html = '<textarea placeholder="Enter your text content here." onkeyup="textAreaAdjust(this)" required="required" name="data[' + addincount + '][0]" class="input ' + class_modifier + '"></textarea>';
 	if (buildtype == 'textarea') {
 
@@ -283,7 +308,9 @@ function add_static(elementName, buildtype, displaytype, class_modifier, icon, s
 function add_table(elementName, tablespecs, displaytype, class_modifier, icon, settings_action){
 
 	var newdiv = document.createElement('div');
+	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "element-container accordion-section";
+	newdiv.id = "container" + addincount;
 
 	for(y = 0; y < 6; y++){
 		for(x = 0; x < 6; x++){
@@ -331,8 +358,9 @@ function add_table(elementName, tablespecs, displaytype, class_modifier, icon, s
 function add_file(elementName){
 
 	var newdiv = document.createElement('div');
-
+	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "upload-container accordion-section";
+	newdiv.id = "container" + addincount;
 
 	newdiv.innerHTML = '<div id="active-dropzone' + addincount + '" class="dropzone customdrop"></div>' +
 						'<input type="hidden" required="required" name="data[' + addincount + '][0]" value="file-upload"/>' +
@@ -354,11 +382,9 @@ function add_file(elementName){
 function add_list_base(elementName){
 
 	var newdiv = document.createElement('div');
-
-	var element_identifier = "'list" + addincount + "'";
-
+	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "element-container accordion-section";
-	newdiv.id = "list" + addincount;
+	newdiv.id = "container" + addincount;
 
 	newdiv.innerHTML = '<input type="hidden" required="required" name="data[' + addincount + '][0]" value="list" /> \
 						<button id="element-settings' + addincount + '" type="button" onclick="add_list_line(' + element_identifier + ', ' + addincount + ')" class="form-button add-option-button-fullwidth"> \
@@ -383,18 +409,21 @@ function add_list_line(elementName, datacount){
 	var newdiv = document.createElement('div');
 
 	newdiv.className = "option-line";
+	var element_identifier = "'line" + uniqator + "'";
+	newdiv.id = "line" + uniqator;
 
 	newdiv.innerHTML = '<div class="form-button option-icon"> \
 							<i class="fa fa-circle"></i> \
 						</div> \
 						<input type="text" placeholder="Enter line content here." required="required" name="data[' + datacount + '][1]" class="input option-element list-content" /> \
-						<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button minus-button"> \
+						<button id="element-settings' + datacount + '" type="button" onclick="del_element(' + element_identifier + ')" class="form-button bin-button"> \
 							<i class="fa fa-trash-o"></i> \
 						</button> \
 						<div class="clear"></div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
+	uniqator++;
 }
 
 // ======================================================================================
@@ -404,8 +433,27 @@ function add_list_line(elementName, datacount){
 function add_section(elementName){
 	var newdiv = document.createElement('div');
 	newdiv.className = "section accordion";
-	newdiv.id = "section" + sectioncount;
+	newdiv.id = "section-container-" + sectioncount;
+	newdiv.innerHTML = '<div class="section-header"> \
+							<input type="hidden" required="required" name="data" value="3"/> \
+							<input type="hidden" required="required" name="data" value="section-' + sectioncount + '"/> \
+							<input type="text" required="required" name="data" placeholder="Enter Section Title Here." class="input header-title" /> \
+							<input type="hidden" required="required" name="data" value="section-title" /> \
+							<a id="section-' + sectioncount + '-heading" class = "section-expand expanded" href="#section-' + sectioncount + '"> \
+								<i class="fa fa-minus expanded"></i> \
+							</a> \
+							<a class="settings-cog" href="#settings-' + addincount + '"> \
+								<i class="fa fa-cog"></i> \
+							</a> \
+						</div> \
+						<div id="section-' + sectioncount + '" class="section-body"> \
+							<div id="settings-' + addincount + '" class="accordion-section-content"> \
+								<h3>Options</h3> \
+								<p>Various settings will go here.</p> \
+							</div> \
+						</div>';
 	document.getElementById(elementName).appendChild(newdiv);
+	addincount++;
 	sectioncount++;
 }
 
@@ -460,14 +508,7 @@ function translateLabel (element) {
 
 function del_element(elementName){
 
-	var inputval = elementIndex;
-	var elementline = elementName + 'line' + elementIndex;
-	var elementbtn = elementName + 'btn' + elementIndex;
+	var trash = elementName;
 
-	document.getElementById(elementline).setAttribute("name", "delete");
-	document.getElementById(elementline).classList.add("line-delete");
-	document.getElementById(elementline).readOnly=true;
-	document.getElementById(elementbtn).innerHTML="+";
-	document.getElementById(elementbtn).classList.add("btn-delete");
-	document.getElementById(elementbtn).setAttribute("onClick", "enableInput('form', " + elementIndex + ");");
+	document.getElementById(elementline).remove();
 }

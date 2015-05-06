@@ -187,7 +187,6 @@ a {
 
 	/* position */
 	width: 100%;
-	padding: 15px;
 	margin: 0 0 30px 0;
 
 	/* display */
@@ -200,6 +199,15 @@ a {
 	-webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.35);
 	-moz-box-shadow:	0px 0px 8px 0px rgba(50, 50, 50, 0.35);
 	box-shadow:		 0px 0px 8px 0px rgba(50, 50, 50, 0.35);
+}
+
+
+.section-header {
+	padding: 15px;
+	background-color:lightpink;
+}
+.section-body {
+	padding: 15px;
 }
 
 .element-container {
@@ -246,6 +254,38 @@ a {
 	background:transparent;
 }
 
+.section-header .header-title {
+	/* position */
+	display:inline-block;
+	padding: 0 10px;
+	width: calc(100% - 120px);
+
+	/* other */
+	margin-right:20px;
+	background:transparent;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+}
+
+.section-header ::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.section-header :-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+.section-header ::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+.section-header :-ms-input-placeholder {  
+   color: #fff;  
+}
+
 .section .text-title {
 
 	/* position */
@@ -281,7 +321,7 @@ a {
 .section .option-content {
 
 	/* position */
-	width: calc(50% - 80px);
+	width: calc(50% - 67.5px);
 	float:left;
 }
 
@@ -355,6 +395,16 @@ a {
 
 	/* position */
 	width: 40px;
+
+	/* other */
+	text-align: center;
+}
+
+.section .bin-button {
+
+	/* position */
+	width: 40px;
+	margin-left:15px;
 
 	/* other */
 	text-align: center;
@@ -503,6 +553,28 @@ table.dynamic-table tr {
 	margin: 10px 0px;
 	background-color: lightpink;
 	color:white;
+}
+
+
+/*----- SECTION HEADING EXPANTION -----*/
+
+.expanded {
+
+}
+
+.section-expand {
+	width:40px;
+	margin-left:20px;
+	padding:0;
+	line-height: 40px;
+	text-align: center;
+	float:right;
+	display:inline-block;
+	background:#333;
+	transition:all linear 0.15s;
+
+	/* Type */
+	font-size:1.200em;
 }
 
 /* ============================================================
