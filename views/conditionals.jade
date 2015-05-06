@@ -40,11 +40,11 @@ block content
 			a.elementbox__button.accordion-section-title(href="#accordion-static") Static fields
 				i.fa.fa-plus.float-right
 			#accordion-static.accordion-section-content
-				button(onClick="add_static('section0', 'text', 'title', 'text-title', 'pencil', '#')")
+				button(onClick="add_static('section0', 'text', 'title', 'text-title', 'header', '#')")
 					i.fa.fa-header
 					p Title
 
-				button(onClick="add_static('section0', 'textarea', 'content', 'text-content', 'pencil', '#')")
+				button(onClick="add_static('section0', 'textarea', 'content', 'text-content', 'info', '#')")
 					i.fa.fa-info
 					p text
 
@@ -70,7 +70,7 @@ block content
 			a.elementbox__button.accordion-section-title(href="#accordion-section") Add Section
 				i.fa.fa-plus.float-right
 			#accordion-section.accordion-section-content
-				button(onClick='#')
+				button(onClick="add_section('formbox')")
 					i.fa.fa-plus-square-o
 					p New Section
 

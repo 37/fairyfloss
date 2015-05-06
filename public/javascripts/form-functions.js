@@ -3,6 +3,7 @@
 // ======================================================================================
 
 var addincount = 0;
+var sectioncount = 1;
 
 var tableref = [
 	['box0', 'box1', 'box2', 'box3', 'box4', 'box5'],
@@ -394,6 +395,18 @@ function add_list_line(elementName, datacount){
 
 	document.getElementById(elementName).appendChild(newdiv);
 
+}
+
+// ======================================================================================
+// 			Adding section functions
+// ======================================================================================
+
+function add_section(elementName){
+	var newdiv = document.createElement('div');
+	newdiv.className = "section accordion";
+	newdiv.id = "section" + sectioncount;
+	document.getElementById(elementName).appendChild(newdiv);
+	sectioncount++;
 }
 
 // ======================================================================================

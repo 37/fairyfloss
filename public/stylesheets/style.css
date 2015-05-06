@@ -180,13 +180,15 @@ a {
 #formbox {
 	width: calc(100% - 80px);
 	padding: 40px;
+	background-color:#f7f7f7;
 }
 
 .section {
 
 	/* position */
-	width: calc(100% - 30px);
+	width: 100%;
 	padding: 15px;
+	margin: 0 0 30px 0;
 
 	/* display */
 	background-color: white;
@@ -204,6 +206,10 @@ a {
 	margin-bottom: 15px;
 	border: 3px solid lightpink;
 	padding: 10px;
+}
+
+.section .element-container:nth-last-child(1) {
+  margin-bottom: 0;
 }
 
 .section .text-input {
@@ -245,6 +251,7 @@ a {
 	/* position */
 	display:inline-block;
 	padding: 0 10px;
+	width: calc(100% - 100px);
 
 	/* other */
 	margin-right:20px;
@@ -448,7 +455,6 @@ table.dynamic-table tr {
 	overflow:hidden;
 	box-shadow:0px 1px 3px rgba(0,0,0,0.25);
 	border-radius:3px;
-	background:#f7f7f7;
 }
  
 /*----- Section Titles -----*/
@@ -491,6 +497,13 @@ table.dynamic-table tr {
 	display:none;
 }
 
+.section .accordion-section-content {
+	padding:10px;
+	display:none;
+	margin: 10px 0px;
+	background-color: lightpink;
+	color:white;
+}
 
 /* ============================================================
 			Spacer CSS for clearing element alignment
