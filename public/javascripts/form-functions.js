@@ -23,6 +23,7 @@ var uniqator = 9000;
 Element.prototype.remove = function() {
 	this.parentElement.removeChild(this);
 }
+
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 	for(var i = 0, len = this.length; i < len; i++) {
 		if(this[i] && this[i].parentElement) {
@@ -31,6 +32,18 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 	}
 }
 
+function refresh_sort(){
+	var sectionnames = '#section-0';
+
+	for (i = 1; i < (sectioncount + 1); i++) {
+		sectionnames += ', #section-' + i;
+	}
+
+	$(sectionnames).sortable({
+		connectWith: '.connected' ,
+		items: ':not(.accordion-section-content)'
+	});
+}
 
 // ======================================================================================
 // 			Input generator functions
@@ -53,7 +66,11 @@ function add_textbox(elementName){
 							<p>Various settings will go here.</p> \
 						</div>';
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
+
 	addincount++;
+
 }
 
 function add_textarea(elementName){
@@ -72,7 +89,11 @@ function add_textarea(elementName){
 								<p>Various settings will go here.</p> \
 							</div>';
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
+
 	addincount++;
+
 }
 
 // ======================================================================================
@@ -104,6 +125,8 @@ function add_checkbox_base(elementName){
 						<div id="checkbox' + addincount + '" class="option-container"></div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
 
 	addincount++;
 }
@@ -158,6 +181,8 @@ function add_dropdown_base(elementName){
 
 	document.getElementById(elementName).appendChild(newdiv);
 
+	refresh_sort();
+
 	addincount++;
 }
 
@@ -210,6 +235,8 @@ function add_radio_base(elementName){
 						<div id="radio' + addincount + '" class="option-container"></div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
 
 	addincount++;
 }
@@ -264,6 +291,8 @@ function add_uploader(elementName){
 	document.getElementById(elementName).appendChild(newdiv);
 	$("div#mockup-dropzone").dropzone({ url: "/file/post", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
 
+	refresh_sort();
+
 	addincount++;
 }
 
@@ -301,6 +330,8 @@ function add_static(elementName, buildtype, displaytype, class_modifier, icon, s
 						</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
 
 	addincount++;
 }
@@ -352,6 +383,8 @@ function add_table(elementName, tablespecs, displaytype, class_modifier, icon, s
 		}
 	}
 
+	refresh_sort();
+
 	addincount++;
 }
 
@@ -400,6 +433,8 @@ function add_list_base(elementName){
 						</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
+
+	refresh_sort();
 
 	addincount++;
 }
@@ -453,8 +488,12 @@ function add_section(elementName){
 							</div> \
 						</div>';
 	document.getElementById(elementName).appendChild(newdiv);
+
 	addincount++;
+
 	sectioncount++;
+
+	refresh_sort();
 }
 
 // ======================================================================================
