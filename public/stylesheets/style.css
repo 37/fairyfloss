@@ -69,7 +69,19 @@ a {
 	float:right;
 }
 
-
+#submit-button {
+	height: 70px;
+	width: 100%;
+	background-color: #333;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	border: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
 /* ============================================================
 			Block container CSS for sample elements
 ==============================================================*/
