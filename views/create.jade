@@ -1,101 +1,100 @@
-extends layout
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='/stylesheets/style-new.css')
+		link(rel='stylesheet', href='/stylesheets/dropzone.css')
+		script(type='text/javascript', src='https://code.jquery.com/jquery-1.11.2.js')
+		script(type='text/javascript', src='/javascripts/jquery.sortable.js')
+		script(type='text/javascript', src='/javascripts/dropzone.js')
+		script(type='text/javascript', src='/javascripts/form-functions.js')
 
-block content
-	h1 Fairyfloss
-	p Click and customise conditionals to your hearts content.
-	.clearline
+	body
+		block content
+			.column11
+				form
+					.sidebar
+						.toolbar.accordion
+							i.fa.fa-google-wallet.logo(onClick="location.href='/'")
+							.logo-clear
+							#elementbox.accordion-section
+								
+									.button(onClick="add_textbox('section-0')")
+										i.fa.fa-pencil
+										p short
 
-	h3 Demo
-	
-	.column13.accordion
-		h4 Elements
-		#elementbox.accordion-section
-			a.elementbox__button.accordion-section-title(href="#accordion-inputs") Input Fields
-				i.fa.fa-plus.float-right
-			#accordion-inputs.accordion-section-content
-				button(onClick="add_textbox('section-0')")
-					i.fa.fa-pencil
-					p Textbox
+									.button(onClick="add_textarea('section-0')")
+										i.fa.fa-pencil-square-o
+										p long
 
-				button(onClick="add_textarea('section-0')")
-					i.fa.fa-pencil-square-o
-					p Textarea
+									.button(onClick="add_checkbox_base('section-0')")
+										i.fa.fa-square
+										p Check
 
-				button(onClick="add_checkbox_base('section-0')")
-					i.fa.fa-square
-					p Checkbox
+									.button(onClick="add_radio_base('section-0')")
+										i.fa.fa-dot-circle-o
+										p Radio
 
-				button(onClick="add_radio_base('section-0')")
-					i.fa.fa-dot-circle-o
-					p Radio
+									.button(onClick="add_dropdown_base('section-0')")
+										i.fa.fa-bars
+										p Options
 
-				button(onClick="add_dropdown_base('section-0')")
-					i.fa.fa-bars
-					p Dropdown
+									.button(onClick="add_uploader('section-0')")
+										i.fa.fa-cloud-upload
+										p File
 
-				button(onClick="add_uploader('section-0')")
-					i.fa.fa-cloud-upload
-					p Upload
+								
+								
+									.button(onClick="add_static('section-0', 'text', 'title', 'text-title', 'header', '#')")
+										i.fa.fa-header
+										p Title
 
-			a.elementbox__button.accordion-section-title(href="#accordion-static") Static fields
-				i.fa.fa-plus.float-right
-			#accordion-static.accordion-section-content
-				button(onClick="add_static('section-0', 'text', 'title', 'text-title', 'header', '#')")
-					i.fa.fa-header
-					p Title
+									.button(onClick="add_static('section-0', 'textarea', 'content', 'text-content', 'info', '#')")
+										i.fa.fa-info
+										p text
 
-				button(onClick="add_static('section-0', 'textarea', 'content', 'text-content', 'info', '#')")
-					i.fa.fa-info
-					p text
+									.button.elementbox__button(onClick="toggleVisibility('table-generator')")
+										i.fa.fa-table
+										p Table
+									.clear
+									- var grid = 0
+									- var col1 = [0, 1]
+									div#table-generator(style="display:none;")
+										while grid < 36
+											.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_table('section-0', '#{grid}', 'table', 'text-content', 'pencil', '#')")
+											- grid++
+									.clear
+									.button(onClick="add_file('section-0')")
+										i.fa.fa-picture-o
+										p Images
 
-				button.elementbox__button 
-					i.fa.fa-table
-					p Table
-				.clear
-				- var grid = 0
-				- var col1 = [0, 1]
-				div.table-generator
-					while grid < 36
-						.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_table('section-0', '#{grid}', 'table', 'text-content', 'pencil', '#')")
-						- grid++
+									.button(onClick="add_list_base('section-0')") 
+										i.fa.fa-list
+										p List
 
-				button(onClick="add_file('section-0')")
-					i.fa.fa-picture-o
-					p Images
+								
+									.button(onClick="add_section('formbox')")
+										i.fa.fa-plus-square-o
+										p New Section
 
-				button(onClick="add_list_base('section-0')") 
-					i.fa.fa-list
-					p List
+						button#submit-button(type='submit') 
+							i.fa.fa-cloud-upload
 
-			a.elementbox__button.accordion-section-title(href="#accordion-section") Add Section
-				i.fa.fa-plus.float-right
-			#accordion-section.accordion-section-content
-				button(onClick="add_section('formbox')")
-					i.fa.fa-plus-square-o
-					p New Section
+					#formbox
+						#section-container-0.section.accordion
+							.section-header
+								input(type="hidden", required="required", name="data", value="3")
+								input(type="hidden", required="required", name="data", value="section-0")
+								input(type="text", required="required", name="data", placeholder="Enter Section Title Here", class="input header-title")
+								input(type="hidden", required="required", name="data", value="section-title")
+								a#section-0-heading.section-expand.expanded(href="#section-0")
+									i.fa.fa-minus.expanded
+								a.settings-cog(href="#settings-0")
+									i.fa.fa-cog
+							#section-0.section-body
+								#settings-0.accordion-section-content.settings-area
+									h3 Options
+									p Various settings will go here.
 
-
-
-	.column23
-		h4 Form
-		form#formbox
-			#section-container-0.section.accordion
-				.section-header
-					input(type="hidden", required="required", name="data", value="3")
-					input(type="hidden", required="required", name="data", value="section-0")
-					input(type="text", required="required", name="data", placeholder="Enter Section Title Here", class="input header-title")
-					input(type="hidden", required="required", name="data", value="section-title")
-					a#section-0-heading.section-expand.expanded(href="#section-0")
-						i.fa.fa-minus.expanded
-					a.settings-cog(href="#settings-0")
-						i.fa.fa-cog
-				#section-0.section-body
-					#settings-0.accordion-section-content.settings-area
-						h3 Options
-						p Various settings will go here.
-			button#submit-button(type='submit') Save form
-
-
-
-
-	script(type='text/javascript', src='/javascripts/jquery.accordion.js')
+			script(type='text/javascript', src='/javascripts/jquery.accordion.js')

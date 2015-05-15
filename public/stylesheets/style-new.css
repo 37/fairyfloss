@@ -1,10 +1,9 @@
 body {
-	width:calc(100% - 100px);
-	margin: 0;
-	padding: 50px;
+	width:100%;
+	height:100%;
+	margin:0;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	color: #4F4F4F;
-	float:left;
 }
 
 a {
@@ -68,16 +67,48 @@ a {
 	background-color:#FCFCFC;
 }
 
+.sidebar {
+	position:relative;
+	width: 300px;
+	height: 100vh;
+	background-color: #333;
+	position: fixed;
+	z-index: 10;
+}
 
 /* ============================================================
 			Misc CSS for odd elements
 ==============================================================*/
+
+.logo {
+	cursor:pointer;
+	font-size: 55px;
+	line-height: 70px;
+	height: 70px;
+	float: right;
+	margin-top:5px;
+	margin-right: 15px;
+	color:lightpink;
+}
+
+.logo-clear {
+	clear:both;
+	margin:0;
+	border-bottom:15px solid #efefef;
+	margin-bottom:40px;
+}
+
+.toolbar {
+	box-shadow:none!important;
+}
 
 .float-right {
 	float:right;
 }
 
 #submit-button {
+	position:absolute;
+	bottom:0;
 	height: 70px;
 	width: 100%;
 	background-color: #333;
@@ -197,8 +228,9 @@ a {
 ==============================================================*/
 
 #formbox {
-	width: calc(100% - 80px);
+	width: calc(100% - 380px);
 	padding: 40px;
+	float:right;
 	background-color:#f7f7f7;
 }
 
@@ -453,20 +485,22 @@ a {
 	margin-top:5px;
 }
 
-.table-generator {
+#table-generator {
 	padding:2.5px!important;
+	width:80%;
+	margin: 0 10%;
 }
 
-.table-generator .gridbox {
-	width: calc(16.6666% - 7px);
+#table-generator .gridbox {
+	width: calc(16.6666% - 5px);
+	padding: calc((16.6666% - 5px) / 2) 0;
 	margin:2.5px;
 	background-color:white;
 	border: 1px solid #d5d5d5;
 	float:left;
-	min-height:40px;
 }
 
-.table-generator .grid-hover {
+#table-generator .grid-hover {
 	background-color: lightpink;
 }
 
@@ -602,8 +636,7 @@ table.dynamic-table tr {
 
 .clearline {
 	clear:both;
-	margin:5px 0;
-	border-bottom:1px solid #efefef;
+	border-bottom:3px solid #efefef;
 }
 
 .clear {
@@ -614,19 +647,20 @@ table.dynamic-table tr {
 /* ============================================================
 			Elementbox CSS
 ==============================================================*/
-#elementbox button {
-	width: calc(50% - 10px);
+#elementbox .button {
+	width: calc(100% - 10px);
 	margin: 5px;
 	height: 40px;
-	background-color: white;
+	background-color: transparent;
+	color:white;
 	border: none;
 	font-size:20px;
-	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
 }
 
-#elementbox button p {
+#elementbox .button p {
 	display:inline;
 	margin-left:15px;
 }
@@ -637,7 +671,6 @@ table.dynamic-table tr {
 	width: 100%;
 	margin-top:0;
 	margin-bottom: 5px;
-	padding-left:30px;
 
 	/* display */
 	background-color:#fff;
