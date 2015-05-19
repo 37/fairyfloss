@@ -36,11 +36,51 @@ module.exports = router;
 				// all we have to do is set the properties that we care about 
 				// and then call save() on the user object:
 				
-					var data = form.data.data;
-					console.log('yo ho yo ho its a pirates life for me!');
+				var data = form.data.data;
+				console.log('yo ho yo ho its a pirates life for me!');
 
-					console.log(data);
-					res.redirect('/');
+				console.log(data);
+				res.redirect('/');
+
+				// =================================================
+				// 			Database connections
+				// =================================================
+
+				if (isEmpty(form.data)){
+					console.log ('Form data is empty');
+				}
+				else {
+
+					var listToken = form.data.listToken;
+					var listName = form.data.listName;
+					var description = form.data.listDescription;
+					var contentRaw = form.data.listContent;
+
+					console.log('Content of row list: ' + contentRaw + '. Token: ' + listToken + '. Name: ' + listName + '. Desc: ' + description + '.');
+					
+					pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+						if(err) {
+							return console.error('error fetching client from pool', err);
+						}
+						
+						if (listToken === 'new') {
+							var importdata = client.query("INSERT INTO programs (authorid, shortdesc, content, listname) VALUES ($1, $2, $3, $4) RETURNING pid", [req.user.username, description, contentRaw, listName]);
+						} else {
+							var importdata = client.query("UPDATE programs SET (authorid, shortdesc, content, listname) = ($1, $2, $3, $4) WHERE pid = $5 RETURNING pid", [req.user.username, description, contentRaw, listName, listToken]);
+						}
+						
+						importdata.on('error', function(error) {
+							return console.error(error);
+							return console.log('Data import failed for some reason.');
+						});
+						importdata.on('row', function(row){
+							res.redirect('/edit-list/' + row.pid);
+						});
+						importdata.on('end', function(done){
+							console.log('Successfully updated form, publishing to pool');
+						});
+					});
+				}
 			},
 			error: function (form) {
 				// The form library calls this method if the form
