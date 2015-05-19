@@ -12,16 +12,17 @@ var conditionals = require('./routes/conditionals');
 var create = require('./routes/create');
 
 var app = express();
+var pg = require('pg');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.listen(3000, function() {
-   console.log("Listening on " + 3000);
+	 console.log("Listening on " + 3000);
  });
 
-// uncomment after placing your favicon in /public
+// uncomment after placing your favicon in /public	
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -37,9 +38,9 @@ app.use('/create', create);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handlers
@@ -47,23 +48,37 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
+	app.use(function(err, req, res, next) {
+		res.status(err.status || 500);
+		res.render('error', {
+			message: err.message,
+			error: err
+		});
+	});
 }
+
+// set database connection
+
+app.get('/db', function (request, response) {
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+		client.query('SELECT * FROM test_table', function(err, result) {
+			done();
+			if (err)
+			 { console.error(err); response.send("Error " + err); }
+			else
+			 { response.send(result.rows); }
+		});
+	});
+})	
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: {}
+	});
 });
 
 
