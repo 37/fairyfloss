@@ -70,16 +70,18 @@ function add_textbox(elementName){
 	newdiv.className = "element-container accordion-section";
 	newdiv.id = "container" + addincount;
 	newdiv.innerHTML = 
-		'<input type="hidden" required="required" name="data" value="@<!" />' +
-		'<input type="hidden" required="required" name="data" value="' + elementName + '" class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data" value="textbox" />' +
-		'<input type="text" placeholder="Enter your default text here." required="required" name="data" class="input text-input" />' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '" class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="textbox" />' +
+			'<input type="text" placeholder="Enter your default text here." required="required" name="data" class="input text-input" />' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
 		'</div>';
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -95,16 +97,18 @@ function add_textarea(elementName){
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 	newdiv.innerHTML = 
-		'<input type="hidden" required="required" name="data" value="@<!" />' +
-		'<input type="hidden" required="required" name="data" value="' + elementName + '" class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data" value="textarea" />' +
-		'<textarea placeholder="Enter your default text here." required="required" name="data" class="input text-input"></textarea>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '" class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="textarea" />' +
+			'<textarea placeholder="Enter your default text here." required="required" name="data" class="input text-input"></textarea>' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
 		'</div>';
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -126,21 +130,24 @@ function add_checkbox_base(elementName){
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 
-	newdiv.innerHTML = '<input type="hidden" required="required" name="data" value="@<!" />' +
-						'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
-						'<input type="hidden" required="required" name="data" value="checkbox" />' +
-						'<button id="element-settings' + addincount + '" type="button" onclick="add_checkbox(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-							'<i class="fa fa-plus"> </i>' +
-							'  checkbox option' +
-						'</button>' +
-						'<a class = "settings-cog" href="#settings' + addincount + '">' +
-							'<i class="fa fa-cog"></i>' +
-						'</a>' +
-						'<div id="settings' + addincount + '" class="accordion-section-content">' +
-							'<h3>Options</h3>' +
-							'<p>Various settings will go here.</p>' +
-						'</div>' +
-						'<div id="checkbox' + addincount + '" class="option-container"></div>';
+	newdiv.innerHTML = 
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="checkbox" />' +
+			'<button id="element-settings' + addincount + '" type="button" onclick="add_checkbox(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
+				'<i class="fa fa-plus"> </i>' +
+				'  checkbox option' +
+			'</button>' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
+			'<div id="checkbox' + addincount + '" class="option-container"></div>' +
+		'</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -183,21 +190,23 @@ function add_dropdown_base(elementName){
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML = 
-		'<input type="hidden" required="required" name="data" value="@<!" />' +
-		'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data" value="dropdown" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_dropdown(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus"> </i>' +
-			'  dropdown option' +
-		'</button>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>' +
-		'<div id="dropdown' + addincount + '" class="option-container"></div>';
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="dropdown" />' +
+			'<button id="element-settings' + addincount + '" type="button" onclick="add_dropdown(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
+				'<i class="fa fa-plus"> </i>' +
+				'  dropdown option' +
+			'</button>' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
+			'<div id="dropdown' + addincount + '" class="option-container"></div>' +
+		'</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -240,21 +249,23 @@ function add_radio_base(elementName){
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML = 
-		'<input type="hidden" required="required" name="data" value="@<!" />' +
-		'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data" value="radiobutton" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_radio(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus"> </i>' +
-			'  radio option' +
-		'</button>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>' +
-		'<div id="radio' + addincount + '" class="option-container"></div>';
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="radiobutton" />' +
+			'<button id="element-settings' + addincount + '" type="button" onclick="add_radio(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
+				'<i class="fa fa-plus"> </i>' +
+				'  radio option' +
+			'</button>' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
+			'<div id="radio' + addincount + '" class="option-container"></div>' +
+		'</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -300,18 +311,21 @@ function add_uploader(elementName){
 	newdiv.id = "container" + addincount;
 	newdiv.className = "upload-container accordion-section";
 
-	newdiv.innerHTML = 	'<div id="mockup-dropzone" class="dropzone customdrop"></div>' +
-						'<input type="hidden" required="required" name="data" value="@<!" />' +
-						'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
-						'<input type="hidden" required="required" name="data" value="file-uploader"/>' +
-						'<a class = "settings-cog absolute-button-top-right" href="#settings' + addincount + '">'+
-							'<i class="fa fa-cog"></i>' +
-						'</a>' +
-						'<div id="settings' + addincount + '" class="accordion-section-content">' +
-							'<h3>Options</h3>' +
-							'<p>Various settings will go here.</p> ' +
-						'</div>' +
-						'<div class="spacer"></div>';
+	newdiv.innerHTML = 	
+		'<div id="' + element_identifier + '">' +
+			'<div id="mockup-dropzone" class="dropzone customdrop"></div>' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
+			'<input type="hidden" required="required" name="data" value="file-uploader"/>' +
+			'<a class = "settings-cog absolute-button-top-right" href="#settings' + addincount + '">'+
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p> ' +
+			'</div>' +
+			'<div class="spacer"></div>' +
+		'</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
@@ -340,19 +354,22 @@ function add_static(elementName, buildtype, displaytype, class_modifier, icon, s
 							'<input type="' + buildtype + '" placeholder="Enter your default text here." required="required" name="data" class="input ' + class_modifier + '" />';
 	}
 
-	newdiv.innerHTML = 	'<input type="hidden" required="required" name="data" value="@<!" />' +
-						'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
-						 element_html +
-						'<div class="form-button option-icon">' +
-							'<i class="fa fa-' + icon + '"></i>' +
-						'</div>' +
-						'<a class = "settings-cog" href="#settings' + addincount + '">' +
-							'<i class="fa fa-cog"></i>' +
-						'</a>' +
-						'<div id="settings' + addincount + '" class="accordion-section-content">' +
-							'<h3>Options</h3>' +
-							'<p>Various settings will go here.</p>' +
-						'</div>';
+	newdiv.innerHTML = 	
+		'<div id="' + element_identifier + '">' +
+			'<input type="hidden" required="required" name="data" value="@<!" />' +
+			'<input type="hidden" required="required" name="data" value="' + elementName + '"  class="parent-spec" />' +
+			 element_html +
+			'<div class="form-button option-icon">' +
+				'<i class="fa fa-' + icon + '"></i>' +
+			'</div>' +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>' +
+		'</div>';
 
 	document.getElementById(elementName).appendChild(newdiv);
 
