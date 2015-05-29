@@ -31,8 +31,6 @@ app.use(stormpath.init(app, {
   application:  process.env.STORMPATH_URL,
 }));
 
-app.listen(process.env.PORT || 3000);
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 
