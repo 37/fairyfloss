@@ -645,7 +645,7 @@ table.dynamic-table tr {
 /* ============================================================
 			Elementbox CSS
 ==============================================================*/
-#elementbox .button {
+.sidebar .button {
 	width: calc(100% - 10px);
 	margin: 5px;
 	height: 40px;
@@ -658,7 +658,7 @@ table.dynamic-table tr {
 	cursor: pointer;
 }
 
-#elementbox .button p {
+.sidebar .button p {
 	display:inline;
 	margin-left:15px;
 }
