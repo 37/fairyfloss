@@ -96,6 +96,7 @@ html, body {
   left: 40px;
   background: #666;
   color: white;
+  z-index: 10;
 }
 
 /* ======================================== |
