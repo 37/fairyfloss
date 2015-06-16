@@ -72,7 +72,7 @@ html, body {
 }
 
 .indexcol a:nth-child(3) .column {
-  background-color: #ffffff;
+  background-color: #F1F1F1;
   left: 33.333%;
   color: #4f4f4f;
 }
