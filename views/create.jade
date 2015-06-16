@@ -13,10 +13,26 @@ html
 
 	body.create
 		block content
+			.navbar
+				a(href="/settings")
+					.four.column
+						.container
+							i.fa.fa-wrench
+							h1 Tweak floss machine
+
+				a(href="/create")
+					.four.column
+						.container
+							i.fa.fa-pied-piper-alt
+							h1 Let's cook!
+
+				a(href="/package")
+					.four.column
+						.container
+							i.fa.fa-paper-plane
+							h1 package my floss
 			.main-container
-
 				.sidebar
-
 					.button(onClick="add_textbox('section-0')")
 						i.fa.fa-pencil
 						p short
@@ -59,7 +75,6 @@ html
 						while grid < 36
 							.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_table('section-0', '#{grid}', 'table', 'text-content', 'pencil', '#')")
 							- grid++
-					.clear
 					.button(onClick="add_file('section-0')")
 						i.fa.fa-picture-o
 						p Images
