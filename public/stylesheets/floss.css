@@ -59,12 +59,12 @@ html, body {
   text-align: center;
   color: #fff;
   position: absolute;
-  display: inline-block;
 }
 
 .indexcol .column:nth-child(2) {
   background-color: #E36A5C;
   left:0
+  color: #4f4f4f;
 }
 
 .indexcol .column:nth-child(3) {
@@ -78,9 +78,15 @@ html, body {
 }
 
 .indexcol .column .container{
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
+  top: 50%;
+  position: absolute;
+  width: 100%;
+}
+
+.indexcol .column .container i{
+  width: 100%;
+  clear: both;
+  font-size: 50px;
 }
 
 .logo-header {
