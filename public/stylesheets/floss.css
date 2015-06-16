@@ -63,13 +63,13 @@ html, body {
 
 .indexcol .column:nth-child(2) {
   background-color: #E36A5C;
-  left:0
-  color: #4f4f4f;
+  left:0;
 }
 
 .indexcol .column:nth-child(3) {
   background-color: #ffffff;
   left: 33.333%;
+  color: #4f4f4f;
 }
 
 .indexcol .column:last-child {
