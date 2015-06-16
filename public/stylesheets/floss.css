@@ -55,35 +55,35 @@ html, body {
       Misc styling
 ========================================== */
 
-.indexcol .column {
+.indexcol a .column {
   text-align: center;
   color: #fff;
   position: absolute;
 }
 
-.indexcol .column:nth-child(2) {
+.indexcol a:nth-child(2) .column{
   background-color: #E36A5C;
   left:0;
 }
 
-.indexcol .column:nth-child(3) {
+.indexcol a:nth-child(3) .column {
   background-color: #ffffff;
   left: 33.333%;
   color: #4f4f4f;
 }
 
-.indexcol .column:last-child {
+.indexcol a:last-child .column {
   background-color: #415169;
   right: 0;
 }
 
-.indexcol .column .container{
+.indexcol a .column .container{
   top: calc(50% - 100px);
   width: 100%;
   padding: 0;
 }
 
-.indexcol .column .container i{
+.indexcol a .column .container i{
   width: 100%;
   clear: both;
   font-size: 90px;
