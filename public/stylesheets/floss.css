@@ -146,6 +146,42 @@ html, body {
 
 }
 
+
+.navbar a .column {
+  text-align: center;
+  color: #fff;
+  float: left;
+}
+
+.indexcol a:nth-child(2) .column{
+  background-color: #E36A5C;
+}
+
+.indexcol a:nth-child(2) .column .container:hover,
+.indexcol a:nth-child(2) .column .container:focus {
+  color: #415169;
+}
+
+.indexcol a:nth-child(3) .column {
+  background-color: #F1F1F1;
+  color: #4f4f4f;
+}
+
+.indexcol a:last-child .column {
+  background-color: #415169;
+  right: 0;
+}
+
+.indexcol a:last-child .column .container:hover,
+.indexcol a:last-child .column .container:focus {
+  color: #E36A5C;
+}
+
+.indexcol a .column i{
+  font-size: 30px;
+  line-height: 30px;
+}
+
 /* ======================================== |
       TABLET AND DESKTOP RESPONSIVENESS
 ========================================== */
