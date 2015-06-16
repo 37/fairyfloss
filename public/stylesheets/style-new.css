@@ -645,8 +645,9 @@ table.dynamic-table tr {
 			Elementbox CSS
 ==============================================================*/
 .sidebar .button {
-	width: calc(100% - 10px);
+	width: calc(50% - 10px);
 	margin: 5px;
+	float:left;
 	height: 40px;
 	background-color: transparent;
 	color:white;
