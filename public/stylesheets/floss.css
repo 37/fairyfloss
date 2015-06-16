@@ -62,6 +62,10 @@ html, body {
 .main-container {
   width: 100%;
   padding: 40px;
+  width: calc(100% - 80px);
+  float: left;
+  padding: 40px;
+  min-height: 100%;
 }
 
 

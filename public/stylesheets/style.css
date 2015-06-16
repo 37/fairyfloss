@@ -194,9 +194,8 @@ a {
 ==============================================================*/
 
 #formbox {
-	width: calc(100% - 80px);
-	padding: 40px;
-	background-color:#f7f7f7;
+	width: calc(100% - 340px);
+	float: right;
 }
 
 .section {
