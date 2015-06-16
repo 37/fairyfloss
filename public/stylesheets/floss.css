@@ -57,6 +57,7 @@ html, body {
 
 indexcol .column {
   text-align: center;
+  color: #fff;
 }
 
 .indexcol .column:nth-child(2) {
