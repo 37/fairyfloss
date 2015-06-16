@@ -70,7 +70,6 @@ a {
 .sidebar {
 	position:relative;
 	width: 500px;
-	height: 100vh;
 	background-color: #333;
 	position: fixed;
 	z-index: 10;
