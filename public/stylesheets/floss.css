@@ -59,16 +59,19 @@ indexcol .column {
   text-align: center;
 }
 
-.indexcol .four.column:first-child {
+.indexcol .column:nth-child(2) {
   background-color: #E36A5C;
+  left:0
 }
 
-.indexcol .four.column:nth-child(2) {
-  background-color: #FFFFFF;
+.indexcol .column:nth-child(3) {
+  background-color: #ffffff;
+  left: 33.333%;
 }
 
-.indexcol .four.column:last-child {
+.indexcol .column:last-child {
   background-color: #D9E8FF;
+  right: 0;
 }
 
 .logo-header {
