@@ -750,77 +750,10 @@ table.dynamic-table tr {
 }
 
 
-/* ============================================================
-			Elementbox CSS
-==============================================================*/
-#elementbox button {
-	width: calc(50% - 10px);
-	margin: 5px;
-	height: 40px;
-	background-color: white;
-	border: none;
-	font-size:20px;
-	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-}
-
-#elementbox button p {
-	display:inline;
-	margin-left:15px;
-}
-
-.elementbox__button {
-	/* position */
-	float:left;
-	width: 100%;
-	margin-top:0;
-	margin-bottom: 5px;
-	padding-left:30px;
-
-	/* display */
-	background-color:#fff;
-	color:#4c4c4c;
-	font-size:20px;
-	border-bottom: 2px solid #efefef;
-
-	/* other */
-	cursor: pointer;
-	text-decoration: none;
-	line-height: 40px;
-}
-
-.elementbox__button i.fa.fa-plus, .elementbox__button i.fa.fa-minus{
-	margin-left: 20px;
-	margin-right: 20px;
-	line-height: 40px;
-}
-
-.ui-accordion-header {
-	background-color: rgb(150, 203, 255);
-}
-
-.inneraccordion {
-	padding:0!important;
-	width:90%;
-	float:right;
-}
-
-.inneraccordion .ui-accordion-header {
-	margin-top:5px;
-}
-
-.inneraccordion .ui-accordion-content {
-	background-color:white;
-	background-color: white;
-	border: 1px solid #efefef;
-	border-top: none;
-}
 
 /* ============================================================
 			Misc priority CSS styles
 ==============================================================*/
-
 
 /* ======================================== |
       TABLET AND DESKTOP RESPONSIVENESS
