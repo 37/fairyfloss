@@ -148,7 +148,14 @@ html, body {
 
 .navbar a .column h1, .navbar a .column  i {
   display: inline;
+  font-size: 20px;
+  line-height: 20px;
 }
+
+.navbar a .column  i {
+  margin-right: 10px;
+}
+
 
 .navbar a .column {
   text-align: center;
@@ -179,11 +186,6 @@ html, body {
 .navbar a:last-child .column:hover,
 .navbar a:last-child .column:focus {
   color: #E36A5C;
-}
-
-.navbar a .column i{
-  font-size: 30px;
-  line-height: 30px;
 }
 
 /* ======================================== |
