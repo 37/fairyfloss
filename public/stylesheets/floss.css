@@ -55,9 +55,11 @@ html, body {
       Misc styling
 ========================================== */
 
-indexcol .column {
+.indexcol .column {
   text-align: center;
   color: #fff;
+  position: absolute;
+  display: inline-block;
 }
 
 .indexcol .column:nth-child(2) {
@@ -73,6 +75,12 @@ indexcol .column {
 .indexcol .column:last-child {
   background-color: #D9E8FF;
   right: 0;
+}
+
+.indexcol .column .container{
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .logo-header {
