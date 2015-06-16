@@ -68,7 +68,7 @@ html, body {
 
 .indexcol a:nth-child(2) .column .container:hover,
 .indexcol a:nth-child(2) .column .container:focus {
-  color: #4f4f4f;
+  color: #415169;
 }
 
 .indexcol a:nth-child(3) .column {
@@ -79,7 +79,7 @@ html, body {
 
 .indexcol a:nth-child(3) .column .container:hover,
 .indexcol a:nth-child(3) .column .container:focus {
-  color: #415169;
+  color: #E36A5C;
 }
 
 .indexcol a:last-child .column {
