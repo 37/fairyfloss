@@ -1,0 +1,134 @@
+/* ======================================== |
+      Global styling
+========================================== */
+html, body {
+  width: 100%;
+  padding: 0;
+  height: 100%;
+}
+
+/* Padding */
+
+.padding-small{
+  padding: 10px;
+}
+
+.padding-medium{
+  padding: 20px;
+}
+
+.padding-large{
+  padding: 40px;
+}
+
+/* Float*/
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/* Columns */
+
+.column {
+  float:left;
+  height: 100%;
+}
+
+.one, .two, .three {
+  width: 24.999%;
+}
+
+.four, .five, .six {
+  width: 49.998%;
+}
+
+.seven, .eight, .nine, .ten, .eleven, .full {
+  width: 99.996%;
+}
+
+
+/* ======================================== |
+      Misc styling
+========================================== */
+
+.indexcol .four.column:first-child {
+  background-color: #E36A5C;
+}
+
+.indexcol .four.column:nth-child(2) {
+  background-color: #FFFFFF;
+}
+
+.indexcol .four.column:last-child {
+  background-color: #D9E8FF;
+}
+
+/* ======================================== |
+      TABLET AND DESKTOP RESPONSIVENESS
+========================================== */
+
+/* Tablet / Small screen Portrait and Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1279px) {
+
+}
+
+@media only screen and (min-device-width: 1280px) {
+  /* Desktop columns */
+
+  .column {
+    float: left;
+  }
+
+  .one {
+    width: 8.333%;
+  }
+
+  .two {
+    width: 16.666%;
+  }
+
+  .three {
+    width: 24.999%;
+  }
+
+  .four{
+    width: 33.332%;
+  }
+
+  .five {
+    width: 41.665%;
+  }
+
+  .six {
+    width: 49.998%;
+  }
+
+  .seven {
+    width: 58.331%;
+  }
+
+  .eight {
+    width: 66.664%;
+  }
+
+  .nine {
+    width: 74.997%;
+  }
+
+  .ten {
+    width: 83.33%;
+  }
+
+  .eleven {
+    width: 91.663%;
+  }
+
+  .full {
+    width: 99.996%;
+  }
+}
