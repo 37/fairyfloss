@@ -153,16 +153,16 @@ html, body {
   float: left;
 }
 
-.navbar a:nth-child(2) .column{
+.navbar a:first-child .column{
   background-color: #E36A5C;
 }
 
-.navbar a:nth-child(2) .column:hover,
-.navbar a:nth-child(2) .column:focus {
+.navbar a:first-child .column:hover,
+.navbar a:first-child .column:focus {
   color: #415169;
 }
 
-.navbar a:nth-child(3) .column {
+.navbar a:nth-child(2) .column {
   background-color: #F1F1F1;
   color: #4f4f4f;
 }
