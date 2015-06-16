@@ -86,7 +86,8 @@ html, body {
 .indexcol .column .container i{
   width: 100%;
   clear: both;
-  font-size: 50px;
+  font-size: 90px;
+  line-height: 150px;
 }
 
 .logo-header {
