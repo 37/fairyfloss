@@ -146,11 +146,15 @@ html, body {
 
 }
 
+.navbar a h1, .navbar a i {
+  display: inline-block;
+}
 
 .navbar a .column {
   text-align: center;
   color: #fff;
   float: left;
+  padding: 10px 0;
 }
 
 .navbar a:first-child .column{
