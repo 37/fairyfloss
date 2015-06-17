@@ -32,10 +32,10 @@ module.exports = router;
 				// The form library calls this success method if the form
 				// is being POSTED and does not have errors.
 
-				// The express-stormpath library will populate req.user, 
-				// all we have to do is set the properties that we care about 
+				// The express-stormpath library will populate req.user,
+				// all we have to do is set the properties that we care about
 				// and then call save() on the user object:
-				
+
 				var data = form.data.data;
 				console.log('yo ho yo ho its a pirates life for me!');
 
@@ -45,9 +45,9 @@ module.exports = router;
 				// =================================================
 				// 			Database connections
 				// =================================================
-
-				if (isEmpty(form.data)){
-					console.log ('Form data is empty');
+				// isEmpty(form.data)
+				if (1==1){
+					console.log ('Form data is empty | This is just a tester stop.');
 				}
 				else {
 
@@ -57,18 +57,18 @@ module.exports = router;
 					var contentRaw = form.data.listContent;
 
 					console.log('Content of row list: ' + contentRaw + '. Token: ' + listToken + '. Name: ' + listName + '. Desc: ' + description + '.');
-					
+
 					pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 						if(err) {
 							return console.error('error fetching client from pool', err);
 						}
-						
+
 						if (listToken === 'new') {
 							var importdata = client.query("INSERT INTO programs (authorid, shortdesc, content, listname) VALUES ($1, $2, $3, $4) RETURNING pid", [req.user.username, description, contentRaw, listName]);
 						} else {
 							var importdata = client.query("UPDATE programs SET (authorid, shortdesc, content, listname) = ($1, $2, $3, $4) WHERE pid = $5 RETURNING pid", [req.user.username, description, contentRaw, listName, listToken]);
 						}
-						
+
 						importdata.on('error', function(error) {
 							return console.error(error);
 							return console.log('Data import failed for some reason.');
@@ -93,7 +93,7 @@ module.exports = router;
 			},
 			empty: function (){
 
-				// The form library calls this method if the method 
+				// The form library calls this method if the method
 				// is GET - thus we just need to render the form.
 				console.log('GET request handled.');
 				renderForm(req, res);
@@ -104,9 +104,9 @@ module.exports = router;
 	// This is an error handler for this router
 
 	router.use(function (err, req, res, next) {
-		// This handler catches errors for this router 
+		// This handler catches errors for this router
 		if (err.code ==='EBADCSRFTOKEN'){
-			// The csrf library is telling us that it can't find a 
+			// The csrf library is telling us that it can't find a
 			// valid token on the form
 			if (req.user){
 				// session token is invalid or expired.
@@ -115,7 +115,7 @@ module.exports = router;
 					errors: [{error: 'Your form has expired, please try again.'}]
 				});
 			} else {
-				// The user's cookies have been deleted, we don't know their 
+				// The user's cookies have been deleted, we don't know their
 				// intention. Send them back to the home page!
 				res.redirect('/');
 			}
