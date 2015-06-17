@@ -75,7 +75,7 @@ function add_input(elementNum, buildtype) {
 			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
-			var escape = '"checkbox' + addincount + '"';
+			var escape = 'checkbox' + addincount;
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(checkbox, ' + escape + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
@@ -146,7 +146,7 @@ function add_line(type, elementName, datacount) {
 	}
 
 	newdiv.innerHTML =
-		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[' + datacount + ']" class="input option-element option-content" />' +
+		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[' + datacount[0] + '][' + datacount[1] + ']" class="input option-element option-content" />' +
 		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
 			'<i class="fa fa-trash-o"></i>' +
 		'</button>';
