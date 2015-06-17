@@ -494,7 +494,7 @@ function add_section(elementName){
 	newdiv.id = "section-container-" + sectioncount;
 	newdiv.innerHTML =
 		'<div class="section-header">' +
-			'<h1 class="header-title" > Section ' + (sectioncount + 1) + '> </h1>' +
+			'<div class="header-title" > Section ' + (sectioncount + 1) + '</div>' +
 			'<a id="section-' + sectioncount + '-heading" class = "section-expand expanded" href="#section-' + sectioncount + '">' +
 				'<i class="fa fa-minus expanded"></i>' +
 			'</a>' +
