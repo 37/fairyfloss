@@ -87,20 +87,34 @@ function add_input(elementName, buildtype) {
 
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
-		newdiv.innerHTML =
-			'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
-			buildprimary +
-			'<a class = "settings-cog" href="#settings' + addincount + '">' +
-				'<i class="fa fa-cog"></i>' +
-			'</a>' +
-			'<div id="settings' + addincount + '" class="accordion-section-content">' +
-				'<h3>Options</h3>' +
-				'<p>Various settings will go here.</p>' +
-			'</div>' +
-			if (buildsecondary) {
-				buildsecondary +
-			}
-			'';
+		if (buildsecondary) {
+
+			newdiv.innerHTML =
+				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
+				buildprimary +
+				'<a class = "settings-cog" href="#settings' + addincount + '">' +
+					'<i class="fa fa-cog"></i>' +
+				'</a>' +
+				'<div id="settings' + addincount + '" class="accordion-section-content">' +
+					'<h3>Options</h3>' +
+					'<p>Various settings will go here.</p>' +
+				'</div>' +
+				buildsecondary;
+
+		} else {
+
+			newdiv.innerHTML =
+				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
+				buildprimary +
+				'<a class = "settings-cog" href="#settings' + addincount + '">' +
+					'<i class="fa fa-cog"></i>' +
+				'</a>' +
+				'<div id="settings' + addincount + '" class="accordion-section-content">' +
+					'<h3>Options</h3>' +
+					'<p>Various settings will go here.</p>' +
+				'</div>';
+		}
+
 		document.getElementById(elementName).appendChild(newdiv);
 
 		refresh_sort();
