@@ -130,7 +130,7 @@ function add_checkbox_base(elementName){
 		'<div id="settings' + addincount + '" class="accordion-section-content">' +
 			'<h3>Options</h3>' +
 			'<p>Various settings will go here.</p>' +
-		'</div>' +
+		'</div>';
 
 
 	document.getElementById(elementName).appendChild(newdiv);
