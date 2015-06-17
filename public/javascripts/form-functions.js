@@ -77,7 +77,7 @@ function add_input(elementNum, buildtype) {
 		} else if (buildtype == 'checkbox') {
 			var escape = '"checkbox' + addincount + '"';
 			var buildprimary =
-				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(checkbox, ' + escape + ', ' + addincount + ')" class="form-button add-option-button">' +
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(checkbox, ' + escape + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
