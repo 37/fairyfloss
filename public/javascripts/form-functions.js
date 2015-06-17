@@ -63,12 +63,46 @@ function refresh_sort(){
 // 			Input generator functions
 // ======================================================================================
 
+function add_input(elementName, buildtype) {
+		var newdiv = document.createElement('div');
+		var values = "['@']['buildtype']";
+		if (buildtype == 'textbox') {
+
+			var build = '<input type="text" required="required" name="data[0][' + addincount + ']" placeholder="Enter your default text here." class="input text-input" />';
+
+		} else if (buildtype == 'textarea') {
+
+			var build = '<textarea placeholder="Enter your default text here." required="required" name="data[0][' + addincount + ']" class="input text-input"></textarea>';
+
+		} else if (buildtype == 'asdasdasd') {}
+
+		newdiv.id = "container" + addincount;
+		newdiv.className = "element-container accordion-section";
+		newdiv.innerHTML =
+			'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="' + values + '" class="parent-spec" />' +
+			build +
+			'<a class = "settings-cog" href="#settings' + addincount + '">' +
+				'<i class="fa fa-cog"></i>' +
+			'</a>' +
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<h3>Options</h3>' +
+				'<p>Various settings will go here.</p>' +
+			'</div>';
+		document.getElementById(elementName).appendChild(newdiv);
+
+		refresh_sort();
+
+		addincount++;
+
+}
+
+// ========================================
 
 function add_textbox(elementName){
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
-	var values = "['@']['textbox']";
 	newdiv.innerHTML =
 		'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="' + values + '" class="parent-spec" />' +
 		'<input type="text" required="required" name="data[0][' + addincount + ']" placeholder="Enter your default text here." class="input text-input" />' +
@@ -89,12 +123,10 @@ function add_textbox(elementName){
 
 function add_textarea(elementName){
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '" class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="textarea" />' +
 		'<textarea placeholder="Enter your default text here." required="required" name="data[]" class="input text-input"></textarea>' +
 		'<a class = "settings-cog" href="#settings' + addincount + '">' +
 			'<i class="fa fa-cog"></i>' +
@@ -119,6 +151,7 @@ function add_checkbox_base(elementName){
 
 	var newdiv = document.createElement('div');
 	var checkquot = "'checkbox" + addincount + "'";
+	var values = "['@']['textbox']";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
 
@@ -172,8 +205,8 @@ function add_checkbox(elementName, datacount){
 }
 
 function add_dropdown_base(elementName){
-
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	var checkquot = "'dropdown" + addincount + "'";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
@@ -202,7 +235,6 @@ function add_dropdown_base(elementName){
 }
 
 function add_dropdown(elementName, datacount){
-
 	var newdiv = document.createElement('div');
 	newdiv.id = "line" + uniqator;
 	newdiv.className = "option-line";
@@ -226,8 +258,8 @@ function add_dropdown(elementName, datacount){
 }
 
 function add_radio_base(elementName){
-
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	var checkquot = "'radio" + addincount + "'";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
@@ -257,7 +289,6 @@ function add_radio_base(elementName){
 }
 
 function add_radio(elementName, datacount){
-
 	var newdiv = document.createElement('div');
 	newdiv.id = "line" + uniqator;
 	newdiv.className = "option-line";
@@ -286,8 +317,8 @@ function add_radio(elementName, datacount){
 // ======================================================================================
 
 function add_uploader(elementName){
-
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.id = "container" + addincount;
 	newdiv.className = "upload-container accordion-section";
 
@@ -321,6 +352,7 @@ function add_uploader(elementName){
 function add_static(elementName, buildtype, displaytype, class_modifier, icon, settings_action){
 
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.className = "element-container accordion-section";
 	newdiv.id = "container" + addincount;
 	if (buildtype == 'textarea') {
@@ -356,6 +388,7 @@ function add_static(elementName, buildtype, displaytype, class_modifier, icon, s
 function add_file(elementName){
 
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.className = "upload-container accordion-section";
 	newdiv.id = "container" + addincount;
 	newdiv.innerHTML =
@@ -381,6 +414,7 @@ function add_file(elementName){
 function add_list_base(elementName){
 
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	var element_identifier = "'container" + addincount + "'";
 	newdiv.className = "element-container accordion-section";
 	newdiv.id = "container" + addincount;
@@ -411,9 +445,8 @@ function add_list_base(elementName){
 function add_list_line(elementName, datacount){
 
 	var newdiv = document.createElement('div');
-
-	newdiv.className = "option-line";
 	var element_identifier = "'line" + uniqator + "'";
+	newdiv.className = "option-line";
 	newdiv.id = "line" + uniqator;
 
 	newdiv.innerHTML =
@@ -434,6 +467,7 @@ function add_list_line(elementName, datacount){
 function add_table(elementName, tablespecs, displaytype, class_modifier, icon, settings_action){
 
 	var newdiv = document.createElement('div');
+	var values = "['@']['textbox']";
 	newdiv.className = "element-container accordion-section";
 	newdiv.id = "container" + addincount;
 
