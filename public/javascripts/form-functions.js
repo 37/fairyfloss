@@ -99,7 +99,7 @@ function add_input(elementName, buildtype) {
 					'<h3>Options</h3>' +
 					'<p>Various settings will go here.</p>' +
 				'</div>' +
-				buildsecondary;
+				buildsecondary + '';
 
 		} else {
 
