@@ -75,7 +75,7 @@ function add_input(elementNum, buildtype) {
 			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
-			var escape = 'checkbox' + addincount;
+			var escape = ["'checkbox'", "'checkbox" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(checkbox, ' + escape + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
