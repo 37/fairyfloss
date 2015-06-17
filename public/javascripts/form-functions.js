@@ -494,11 +494,7 @@ function add_section(elementName){
 	newdiv.id = "section-container-" + sectioncount;
 	newdiv.innerHTML =
 		'<div class="section-header">' +
-			'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-			'<input type="hidden" required="required" name="data[]" value="root" />' +
-			'<input type="hidden" required="required" name="data[]" value="list" />' +
-			'<input type="hidden" required="required" name="data[]" value="section-' + sectioncount + '"/>' +
-			'<input type="text" required="required" name="data[]" placeholder="Enter Section Title Here." class="input header-title" />' +
+			'<h1 class="header-title" > Section ' + (sectioncount + 1) + '> </h1>' +
 			'<a id="section-' + sectioncount + '-heading" class = "section-expand expanded" href="#section-' + sectioncount + '">' +
 				'<i class="fa fa-minus expanded"></i>' +
 			'</a>' +
