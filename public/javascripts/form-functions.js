@@ -68,28 +68,28 @@ function add_input(elementName, buildtype) {
 		var values = "[@][" + buildtype + "]";
 		if (buildtype == 'textbox') {
 
-			var build-primary = '<input type="text" name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here." />';
+			var buildprimary = '<input type="text" name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here." />';
 
 		} else if (buildtype == 'textarea') {
 
-			var build-primary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
+			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
 			var escape1 = '"checkbox"';
 			var escape2 = '"checkbox' + addincount + '"';
-			var build-primary =
+			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape1 + ' , ' + escape2 + ', ' + addincount + ')" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"> </i>' +
 					'  checkbox option' +
 				'</button>';
-			var build-secondary =	'<div id="checkbox' + addincount + '" class="option-container"></div>';
+			var buildsecondary =	'<div id="checkbox' + addincount + '" class="option-container"></div>';
 		}
 
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
 		newdiv.innerHTML =
 			'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
-			build-primary +
+			buildprimary +
 			'<a class = "settings-cog" href="#settings' + addincount + '">' +
 				'<i class="fa fa-cog"></i>' +
 			'</a>' +
@@ -97,8 +97,8 @@ function add_input(elementName, buildtype) {
 				'<h3>Options</h3>' +
 				'<p>Various settings will go here.</p>' +
 			'</div>' +
-			if (build-primary) {
-				build-secondary +
+			if (buildsecondary) {
+				buildsecondary +
 			}
 			'';
 		document.getElementById(elementName).appendChild(newdiv);
