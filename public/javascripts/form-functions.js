@@ -65,21 +65,21 @@ function refresh_sort(){
 
 function add_input(elementName, buildtype) {
 		var newdiv = document.createElement('div');
-		var values = "['@']['buildtype']";
+		var values = "['@'][" + buildtype + "]";
 		if (buildtype == 'textbox') {
 
-			var build = '<input type="text" required="required" name="data[0][' + addincount + ']" placeholder="Enter your default text here." class="input text-input" />';
+			var build = '<input type="text" name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here." />';
 
 		} else if (buildtype == 'textarea') {
 
-			var build = '<textarea placeholder="Enter your default text here." required="required" name="data[0][' + addincount + ']" class="input text-input"></textarea>';
+			var build = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'asdasdasd') {}
 
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
 		newdiv.innerHTML =
-			'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="' + values + '" class="parent-spec" />' +
+			'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
 			build +
 			'<a class = "settings-cog" href="#settings' + addincount + '">' +
 				'<i class="fa fa-cog"></i>' +
