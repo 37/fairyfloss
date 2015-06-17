@@ -229,6 +229,8 @@ a {
 #formbox {
 	width: calc(100% - 540px);
 	float:right;
+	padding-bottom: 50px;
+	position: relative;
 }
 
 .section {
