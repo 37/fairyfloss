@@ -65,81 +65,47 @@ function refresh_sort(){
 
 function add_input(elementName, buildtype) {
 		var newdiv = document.createElement('div');
-		var values = "['@'][" + buildtype + "]";
+		var values = "[@][" + buildtype + "]";
 		if (buildtype == 'textbox') {
 
-			var build = '<input type="text" name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here." />';
+			var build-primary = '<input type="text" name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here." />';
 
 		} else if (buildtype == 'textarea') {
 
-			var build = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
+			var build-primary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
-		} else if (buildtype == 'asdasdasd') {}
+		} else if (buildtype == 'checkbox') {
+			var escape1 = '"checkbox"';
+			var escape2 = '"checkbox' + addincount + '"';
+			var build-primary =
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape1 + ' , ' + escape2 + ', ' + addincount + ')" class="form-button add-option-button">' +
+					'<i class="fa fa-plus"> </i>' +
+					'  checkbox option' +
+				'</button>';
+			var build-secondary =	'<div id="checkbox' + addincount + '" class="option-container"></div>';
+		}
 
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
 		newdiv.innerHTML =
 			'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
-			build +
+			build-primary +
 			'<a class = "settings-cog" href="#settings' + addincount + '">' +
 				'<i class="fa fa-cog"></i>' +
 			'</a>' +
 			'<div id="settings' + addincount + '" class="accordion-section-content">' +
 				'<h3>Options</h3>' +
 				'<p>Various settings will go here.</p>' +
-			'</div>';
+			'</div>' +
+			if (build-primary) {
+				build-secondary +
+			}
+			'';
 		document.getElementById(elementName).appendChild(newdiv);
 
 		refresh_sort();
 
 		addincount++;
-
-}
-
-// ========================================
-
-function add_textbox(elementName){
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "element-container accordion-section";
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="' + values + '" class="parent-spec" />' +
-		'<input type="text" required="required" name="data[0][' + addincount + ']" placeholder="Enter your default text here." class="input text-input" />' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>';
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-
-}
-
-function add_textarea(elementName){
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "element-container accordion-section";
-	newdiv.innerHTML =
-		'<textarea placeholder="Enter your default text here." required="required" name="data[]" class="input text-input"></textarea>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>';
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
 
 }
 
@@ -156,13 +122,8 @@ function add_checkbox_base(elementName){
 	newdiv.className = "element-container accordion-section";
 
 	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="checkbox" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_checkbox(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus"> </i>' +
-			'  checkbox option' +
-		'</button>' +
+
+
 		'<a class = "settings-cog" href="#settings' + addincount + '">' +
 			'<i class="fa fa-cog"></i>' +
 		'</a>' +
@@ -170,7 +131,7 @@ function add_checkbox_base(elementName){
 			'<h3>Options</h3>' +
 			'<p>Various settings will go here.</p>' +
 		'</div>' +
-		'<div id="checkbox' + addincount + '" class="option-container"></div>';
+
 
 	document.getElementById(elementName).appendChild(newdiv);
 
