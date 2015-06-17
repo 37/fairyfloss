@@ -78,8 +78,8 @@ function add_input(elementName, buildtype) {
 			var escape1 = '"checkbox"';
 			var escape2 = '"checkbox' + addincount + '"';
 			var buildprimary =
-				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape1 + ' , ' + escape2 + ', ' + addincount + ')" class="form-button add-option-button">' +
-					'<i class="fa fa-plus"> </i>' +
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape1 + ', ' + escape2 + ', ' + addincount + ')" class="form-button add-option-button">' +
+					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
 			var buildsecondary =	'<div id="checkbox' + addincount + '" class="option-container"></div>';
@@ -102,7 +102,6 @@ function add_input(elementName, buildtype) {
 					'<p>Various settings will go here.</p>' +
 				'</div>' +
 				buildsecondary + '';
-
 		} else {
 			console.log('primary called.');
 			newdiv.innerHTML =
@@ -117,6 +116,7 @@ function add_input(elementName, buildtype) {
 				'</div>';
 		}
 
+		console.log('generator finished.')
 		document.getElementById(elementName).appendChild(newdiv);
 
 		refresh_sort();
