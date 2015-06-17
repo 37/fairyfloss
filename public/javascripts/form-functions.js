@@ -75,13 +75,36 @@ function add_input(elementNum, buildtype) {
 			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
+			// SPAWN CHECKBOX
 			var escape = ["'checkbox'", "'checkbox" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
-			var buildsecondary =	'<div id="checkbox' + addincount + '" class="option-container"></div>';
+			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+
+		} else if (buildtype == 'radio') {
+			// SPAWN RADIO
+
+			var escape = ["'radio'", "'radio" + addincount + "'"];
+			var buildprimary =
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
+					'<i class="fa fa-plus"></i>' +
+					'  checkbox option' +
+				'</button>';
+			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+
+		} else if (buildtype == 'dropdown') {
+			// SPAWN DROPDOWN
+
+			var escape = ["'dropdown'", "'dropdown" + addincount + "'"];
+			var buildprimary =
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
+					'<i class="fa fa-plus"></i>' +
+					'  checkbox option' +
+				'</button>';
+			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
 		}
 
 		newdiv.id = "container" + addincount;
