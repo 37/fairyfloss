@@ -68,8 +68,9 @@ function add_textbox(elementName){
 	var newdiv = document.createElement('div');
 	newdiv.id = "container" + addincount;
 	newdiv.className = "element-container accordion-section";
+	var values = "['@']['textbox']";
 	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="["@"]["textbox"]" class="parent-spec" />' +
+		'<input type="hidden" required="required" name="data[0][' + addincount + ']" value="' + values + '" class="parent-spec" />' +
 		'<input type="text" required="required" name="data[0][' + addincount + ']" placeholder="Enter your default text here." class="input text-input" />' +
 		'<a class = "settings-cog" href="#settings' + addincount + '">' +
 			'<i class="fa fa-cog"></i>' +
