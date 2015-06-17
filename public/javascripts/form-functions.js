@@ -2,7 +2,7 @@
 // 			Global variables
 // ======================================================================================
 
-var addincount = 1;
+var addincount = 0;
 var sectioncount = 1;
 
 var tableref = [
@@ -63,7 +63,7 @@ function refresh_sort(){
 // 			Input generator functions
 // ======================================================================================
 
-function add_input(elementName, buildtype) {
+function add_input(elementNum, buildtype) {
 		var newdiv = document.createElement('div');
 		var values = "[@][" + buildtype + "]";
 		if (buildtype == 'textbox') {
@@ -75,10 +75,9 @@ function add_input(elementName, buildtype) {
 			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
-			var escape1 = '"checkbox"';
-			var escape2 = '"checkbox' + addincount + '"';
+			var escape = '"checkbox' + addincount + '"';
 			var buildprimary =
-				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape1 + ', ' + escape2 + ', ' + addincount + ')" class="form-button add-option-button">' +
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(checkbox, ' + escape + ', ' + addincount + ')" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
@@ -88,9 +87,8 @@ function add_input(elementName, buildtype) {
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
 
-		console.log('core function called.');
 		if (buildsecondary) {
-			console.log('buildsecondary called.');
+
 			newdiv.innerHTML =
 				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
 				buildprimary +
@@ -103,7 +101,7 @@ function add_input(elementName, buildtype) {
 				'</div>' +
 				buildsecondary + '';
 		} else {
-			console.log('primary called.');
+
 			newdiv.innerHTML =
 				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
 				buildprimary +
@@ -116,8 +114,7 @@ function add_input(elementName, buildtype) {
 				'</div>';
 		}
 
-		console.log('generator finished.')
-		document.getElementById(elementName).appendChild(newdiv);
+		document.getElementById('section-' + elementNum).appendChild(newdiv);
 
 		refresh_sort();
 
@@ -125,37 +122,31 @@ function add_input(elementName, buildtype) {
 
 }
 
-function add_line(type, elementName, datacount){
+function add_line(type, elementName, datacount) {
 	console.log('add_line was called.');
 	var newdiv = document.createElement('div');
 	newdiv.className = "option-line";
 	newdiv.id = "line" + uniqator;
 
 	if (type == 'checkbox') {
-
 		var buildprimary =
 		'<div class="form-button option-icon">' +
 			'<i class="fa fa-square"></i>' +
 		'</div>';
-
 	} else if (type == 'radio') {
-
 		var buildprimary =
 		'<div class="form-button option-icon">' +
 			'<i class="fa fa-dot-circle-o"></i>' +
 		'</div>';
-
 	} else if (type == 'dropdown') {
-
 		var buildprimary =
 		'<div class="form-button option-icon">' +
 			'<i class="fa fa-bars"></i>' +
 		'</div>';
-
 	}
 
 	newdiv.innerHTML =
-		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[]" class="input option-element option-content" />' +
+		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[' + datacount + ']" class="input option-element option-content" />' +
 		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
 			'<i class="fa fa-trash-o"></i>' +
 		'</button>';
