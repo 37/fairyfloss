@@ -123,53 +123,37 @@ function add_input(elementName, buildtype) {
 
 }
 
-// ======================================================================================
-// 			The following function code should all be optimised into one function
-// ======================================================================================
-
-function add_checkbox_base(elementName){
-
-	var newdiv = document.createElement('div');
-	var checkquot = "'checkbox" + addincount + "'";
-	var values = "['@']['textbox']";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "element-container accordion-section";
-
-	newdiv.innerHTML =
-
-
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>';
-
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-}
-
-function add_checkbox(elementName, datacount){
+function add_line(type, elementName, datacount){
 
 	var newdiv = document.createElement('div');
 	newdiv.className = "option-line";
 	newdiv.id = "line" + uniqator;
 
-	newdiv.innerHTML =
+	if (type == 'checkbox') {
+
+		var buildprimary =
 		'<div class="form-button option-icon">' +
 			'<i class="fa fa-square"></i>' +
-		'</div>' +
-		'<input id="' + uniqator + '" type="text" placeholder="checkbox content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<input id="a' + uniqator + '" type="text" onkeyup="translateLabel(this)" placeholder="Label content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<div class="form-button option-icon">' +
-		//	'<i class="fa fa-chevron-left"></i>' +
-		//'</div>' +
-		//'<input id="b' + uniqator + '" type="text" placeholder="Checkbox value" required="required" name="data[]" class="input option-element option-content" />' +
+		'</div>';
+
+	} else if (type == 'radio') {
+
+		var buildprimary =
+		'<div class="form-button option-icon">' +
+			'<i class="fa fa-dot-circle-o"></i>' +
+		'</div>';
+
+	} else if (type == 'dropdown') {
+
+		var buildprimary =
+		'<div class="form-button option-icon">' +
+			'<i class="fa fa-bars"></i>' +
+		'</div>';
+
+	}
+
+	newdiv.innerHTML =
+		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[]" class="input option-element option-content" />' +
 		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
 			'<i class="fa fa-trash-o"></i>' +
 		'</button>';
@@ -178,6 +162,11 @@ function add_checkbox(elementName, datacount){
 
 	document.getElementById(elementName).appendChild(newdiv);
 }
+
+// ======================================================================================
+// 			The following function code should all be optimised into one function
+// ======================================================================================
+
 
 function add_dropdown_base(elementName){
 	var newdiv = document.createElement('div');
