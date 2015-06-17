@@ -87,8 +87,10 @@ function add_input(elementName, buildtype) {
 
 		newdiv.id = "container" + addincount;
 		newdiv.className = "element-container accordion-section";
-		if (buildsecondary) {
 
+		console.log('core function called.');
+		if (buildsecondary) {
+			console.log('buildsecondary called.');
 			newdiv.innerHTML =
 				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
 				buildprimary +
@@ -102,7 +104,7 @@ function add_input(elementName, buildtype) {
 				buildsecondary + '';
 
 		} else {
-
+			console.log('primary called.');
 			newdiv.innerHTML =
 				'<input type="hidden" name="data[0][' + addincount + ']" class="parent-spec" required="required" value="' + values + '" />' +
 				buildprimary +
