@@ -124,7 +124,7 @@ function add_input(elementName, buildtype) {
 }
 
 function add_line(type, elementName, datacount){
-
+	console.log('add_line was called.');
 	var newdiv = document.createElement('div');
 	newdiv.className = "option-line";
 	newdiv.id = "line" + uniqator;
