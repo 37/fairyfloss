@@ -76,7 +76,7 @@ function add_input(elementNum, buildtype, containerClass) {
 
 		} else if (buildtype == 'checkbox') {
 
-			var escape = ["'checkbox'", "'checkbox" + addincount + "'"];
+			var escape = ["'checkbox'", "'input-container-" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
@@ -87,7 +87,7 @@ function add_input(elementNum, buildtype, containerClass) {
 		} else if (buildtype == 'radio') {
 			// SPAWN RADIO
 
-			var escape = ["'radio'", "'radio" + addincount + "'"];
+			var escape = ["'radio'", "'input-container-" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
@@ -98,7 +98,7 @@ function add_input(elementNum, buildtype, containerClass) {
 		} else if (buildtype == 'dropdown') {
 			// SPAWN DROPDOWN
 
-			var escape = ["'dropdown'", "'dropdown" + addincount + "'"];
+			var escape = ["'dropdown'", "'input-container-" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
@@ -173,7 +173,6 @@ function add_input(elementNum, buildtype, containerClass) {
 }
 
 function add_line(type, elementName, datacount) {
-	console.log('add_line was called.');
 	var newdiv = document.createElement('div');
 	newdiv.className = "option-line";
 	newdiv.id = "line" + uniqator;
