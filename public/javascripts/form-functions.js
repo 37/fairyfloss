@@ -184,7 +184,7 @@ function add_input(elementNum, buildtype, containerClass) {
 
 		} else if (buildtype == 'download') {
 
-			$("input#active-dropzone" + addincount).dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop images here or click to upload.</span><br><br><span class="demo">images uploaded here will <strong>display in the form.</strong></span>' });
+			$("div#active-dropzone" + addincount).dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop images here or click to upload.</span><br><br><span class="demo">images uploaded here will <strong>display in the form.</strong></span>' });
 
 		}
 
