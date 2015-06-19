@@ -125,7 +125,7 @@ function add_input(elementNum, buildtype, containerClass) {
 		} else if (buildtype == 'download') {
 			// SPAWN UPLOADER
 
-			var buildprimary = '<input id="active-dropzone' + addincount + '" class="dropzone customdrop"></div>';
+			var buildprimary = '<div id="active-dropzone' + addincount + '" class="dropzone customdrop"></div>';
 
 		} else if (buildtype == 'static-text') {
 
