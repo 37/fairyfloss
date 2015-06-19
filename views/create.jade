@@ -67,8 +67,6 @@ html
 						i.fa.fa-table
 						p Table
 
-
-
 					- var grid = 0
 					- var col1 = [0, 1]
 					div#table-generator(style="display:none;")
@@ -77,7 +75,7 @@ html
 							.gridbox(id="box#{grid}", onmouseover="gridHoverStyle(#{grid})", onClick="add_table('section-0', '#{grid}', 'table', 'text-content', 'pencil', '#')")
 							- grid++
 
-					.button(onClick="add_file('section-0')")
+					.button(onClick="add_input('0', 'download', 'upload-container')")
 						i.fa.fa-picture-o
 						p Images
 

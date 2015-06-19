@@ -106,10 +106,26 @@ function add_input(elementNum, buildtype, containerClass) {
 				'</button>';
 			var buildsecondary = '<div id="input-container-' + addincount + '" class="option-container"></div>';
 
-		} else if (buildtype == 'upload') {
+		} else if (buildtype == 'list') {
+			// SPAWN DROPDOWN
+
+			var escape = ["'list'", "'input-container-" + addincount + "'"];
+			var buildprimary =
+				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
+					'<i class="fa fa-plus"></i>' +
+					' checkbox option' +
+				'</button>';
+			var buildsecondary = '<div id="input-container-' + addincount + '" class="option-container"></div>';
+
+		}	else if (buildtype == 'upload') {
 			// SPAWN UPLOADER
 
 			var buildprimary = '<div id="mockup-dropzone" class="dropzone customdrop"></div>';
+
+		} else if (buildtype == 'download') {
+			// SPAWN UPLOADER
+
+			var buildprimary = '<input id="active-dropzone' + addincount + '" class="dropzone customdrop"></div>';
 
 		} else if (buildtype == 'static-text') {
 
@@ -163,7 +179,13 @@ function add_input(elementNum, buildtype, containerClass) {
 		document.getElementById('section-' + elementNum).appendChild(newdiv);
 
 		if (buildtype == 'upload') {
-            $("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.)</span>' });
+
+      $("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.)</span>' });
+
+		} else if (buildtype == 'download') {
+
+			$("input#active-dropzone" + addincount).dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop images here or click to upload.</span><br><br><span class="demo">images uploaded here will <strong>display in the form.</strong></span>' });
+
 		}
 
 		refresh_sort();
@@ -192,6 +214,11 @@ function add_line(type, elementName, datacount) {
 		'<div class="form-button option-icon">' +
 			'<i class="fa fa-bars"></i>' +
 		'</div>';
+	} else if (type == 'list') {
+		var buildprimary =
+		'<div class="form-button option-icon">' +
+			'<i class="fa fa-circle"></i>' +
+		'</div>';
 	}
 
 	newdiv.innerHTML =
@@ -210,31 +237,6 @@ function add_line(type, elementName, datacount) {
 // 			Static element functions || **END INPUT GENERATOR FUNCTIONS
 // ======================================================================================
 
-function add_file(elementName){
-
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	newdiv.className = "upload-container accordion-section";
-	newdiv.id = "container" + addincount;
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="file" />' +
-		'<input id="active-dropzone' + addincount + '" class="dropzone customdrop"></div>' +
-		'<a class = "settings-cog absolute-button-top-right" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>' +
-		'<div class="spacer"></div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-	$("input#active-dropzone" + addincount).dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop images here or click to upload.</span><br><br><span class="demo">images uploaded here will <strong>display in the form.</strong></span>' });
-
-	addincount++;
-}
 
 function add_list_base(elementName){
 
