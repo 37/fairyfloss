@@ -22,7 +22,7 @@ var uniqator = 9000;
 
 Element.prototype.remove = function() {
 	this.parentElement.removeChild(this);
-}
+};
 
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 	for(var i = 0, len = this.length; i < len; i++) {
@@ -30,7 +30,7 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 			this[i].parentElement.removeChild(this[i]);
 		}
 	}
-}
+};
 
 function refresh_sort(){
 	var sectionnames = '#section-0';
