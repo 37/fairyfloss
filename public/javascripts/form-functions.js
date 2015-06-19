@@ -55,6 +55,7 @@ function refresh_sort(){
 		for (j=0; i < (elements.length + 1); j++) {
 			var element = elements[j];
 			for (i=0; i < (element.length + 1); i++) {
+				console.log(element.length);
 				element.children('input')[i].setAttribute("name", parent + '[j]');
 			}
 		}
