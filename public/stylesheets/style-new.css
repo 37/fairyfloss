@@ -357,13 +357,13 @@ a {
 	/* position */
 	width: calc(100% - 100px);
 	max-width: calc(100% - 100px);
-	display:inline-block;
-	padding: 0 10px;
+	display: inline-block;
+	padding: 10px;
 
 	/* other */
 	background:transparent;
 	font-size: 16px;
-	line-height: 18px;
+	line-height: 22px;
 	overflow:hidden;
 	border: none;
 }
