@@ -52,13 +52,13 @@ function refresh_sort(){
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
-		for (j=0; i < (elements.length); j++) {
+		for (j=1; i < (elements.length + 1); j++) {
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			console.log('outer loop');
 			console.log(inputs);
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
-				inputs[i].setAttribute("name", parent + '[j]');
+				inputs[i].setAttribute("name", parent + '[' + j + ']');
 			}
 		}
 
