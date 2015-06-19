@@ -63,7 +63,7 @@ function refresh_sort(){
 // 			Input generator functions
 // ======================================================================================
 
-function add_input(elementNum, buildtype) {
+function add_input(elementNum, buildtype, containerClass) {
 		var newdiv = document.createElement('div');
 		var values = "[@][" + buildtype + "]";
 		if (buildtype == 'textbox') {
@@ -75,7 +75,7 @@ function add_input(elementNum, buildtype) {
 			var buildprimary = '<textarea name="data[0][' + addincount + ']" class="input text-input" required="required" placeholder="Enter your default text here."></textarea>';
 
 		} else if (buildtype == 'checkbox') {
-			// SPAWN CHECKBOX
+
 			var escape = ["'checkbox'", "'checkbox" + addincount + "'"];
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
@@ -105,10 +105,32 @@ function add_input(elementNum, buildtype) {
 					'  checkbox option' +
 				'</button>';
 			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+
+		} else if (buildtype == 'upload') {
+			// SPAWN UPLOADER
+
+			var buildprimary = '<div id="mockup-dropzone" class="dropzone customdrop"></div>';
+
+		} else if (buildtype == 'static-text') {
+
+			var buildprimary =
+				'<div class="form-button option-icon">' +
+					'<i class="fa fa-info"></i>' +
+				'</div>' +
+				'<textarea name="data[0][' + addincount + '] class="input text-content" onkeyup="textAreaAdjust(this)" required="required" placeholder="Enter your text content here." ></textarea>';
+
+		} else if (buildtype == 'static-title') {
+
+			var buildprimary =
+				'<div class="form-button option-icon">' +
+					'<i class="fa fa-header"></i>' +
+				'</div>' +
+				'<input type="text" name="data[0][' + addincount + '] class="input text-title" required="required" placeholder="Enter your static title here." />';
+
 		}
 
 		newdiv.id = "container" + addincount;
-		newdiv.className = "element-container accordion-section";
+		newdiv.className = "accordion-section " + containerClass;
 
 		if (buildsecondary) {
 
@@ -123,6 +145,7 @@ function add_input(elementNum, buildtype) {
 					'<p>Various settings will go here.</p>' +
 				'</div>' +
 				buildsecondary + '';
+
 		} else {
 
 			newdiv.innerHTML =
@@ -138,6 +161,12 @@ function add_input(elementNum, buildtype) {
 		}
 
 		document.getElementById('section-' + elementNum).appendChild(newdiv);
+
+		if (upload) {
+
+			$("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
+
+		}
 
 		refresh_sort();
 
@@ -180,190 +209,8 @@ function add_line(type, elementName, datacount) {
 }
 
 // ======================================================================================
-// 			The following function code should all be optimised into one function
-// ======================================================================================
-
-
-function add_dropdown_base(elementName){
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	var checkquot = "'dropdown" + addincount + "'";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "element-container accordion-section";
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="dropdown" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_dropdown(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus"> </i>' +
-			'  dropdown option' +
-		'</button>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>' +
-		'<div id="dropdown' + addincount + '" class="option-container"></div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-}
-
-function add_dropdown(elementName, datacount){
-	var newdiv = document.createElement('div');
-	newdiv.id = "line" + uniqator;
-	newdiv.className = "option-line";
-	newdiv.innerHTML =
-		'<div class="form-button option-icon">' +
-			'<i class="fa fa-bars"></i>' +
-		'</div>' +
-		'<input id="' + uniqator + '" type="text" placeholder="Label content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<input id="a' + uniqator + '" type="text" onkeyup="translateLabel(this)" placeholder="Label content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<div class="form-button option-icon">' +
-		//	'<i class="fa fa-chevron-left"></i>' +
-		//'</div>' +
-		//'<input id="b' + uniqator + '" type="text" placeholder="Dropdown value" required="required" name="data[]" class="input option-element option-content" />' +
-		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
-			'<i class="fa fa-trash-o"></i>' +
-		'</button>';
-
-	uniqator++;
-
-	document.getElementById(elementName).appendChild(newdiv);
-}
-
-function add_radio_base(elementName){
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	var checkquot = "'radio" + addincount + "'";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "element-container accordion-section";
-
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="radiobutton" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_radio(' + checkquot + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus"> </i>' +
-			'  radio option' +
-		'</button>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>' +
-		'<div id="radio' + addincount + '" class="option-container"></div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-}
-
-function add_radio(elementName, datacount){
-	var newdiv = document.createElement('div');
-	newdiv.id = "line" + uniqator;
-	newdiv.className = "option-line";
-	newdiv.innerHTML =
-		'<div class="form-button option-icon">' +
-			'<i class="fa fa-dot-circle-o"></i>' +
-		'</div>' +
-		'<input id="' + uniqator + '" type="text" placeholder="Label content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<input id="a' + uniqator + '" type="text" onkeyup="translateLabel(this)" placeholder="Label content." required="required" name="data[]" class="input option-element option-content" />' +
-		//'<div class="form-button option-icon">' +
-		//	'<i class="fa fa-chevron-left"></i>' +
-		//'</div>' +
-		//'<input id="b' + uniqator + '" type="text" placeholder="Radio value" required="required" name="data[]" class="input option-element option-content" />' +
-		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
-			'<i class="fa fa-trash-o"></i>' +
-		'</button>';
-
-	uniqator++;
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-}
-
-// ======================================================================================
-// 			**END TO-BE BATCHED FUNCTIONS
-// ======================================================================================
-
-function add_uploader(elementName){
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	newdiv.id = "container" + addincount;
-	newdiv.className = "upload-container accordion-section";
-
-	newdiv.innerHTML =
-		'<div id="mockup-dropzone" class="dropzone customdrop"></div>' +
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="file-uploader"/>' +
-		'<a class = "settings-cog absolute-button-top-right" href="#settings' + addincount + '">'+
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p> ' +
-		'</div>' +
-		'<div class="spacer"></div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	$("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
-
-	refresh_sort();
-
-	addincount++;
-}
-
-// ======================================================================================
 // 			Static element functions || **END INPUT GENERATOR FUNCTIONS
 // ======================================================================================
-
-function add_static(elementName, buildtype, displaytype, class_modifier, icon, settings_action){
-
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	newdiv.className = "element-container accordion-section";
-	newdiv.id = "container" + addincount;
-	if (buildtype == 'textarea') {
-		var element_html = 	'<input type="hidden" required="required" name="data[]" value="static-text" />' +
-							'<textarea placeholder="Enter your text content here." onkeyup="textAreaAdjust(this)" required="required" name="data[]" class="input ' + class_modifier + '"></textarea>';
-	} else if (buildtype == 'text') {
-		var element_html = 	'<input type="hidden" required="required" name="data[]" value="static-title" />' +
-							'<input type="' + buildtype + '" placeholder="Enter your default text here." required="required" name="data[]" class="input ' + class_modifier + '" />';
-	}
-
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		element_html +
-		'<div class="form-button option-icon">' +
-			'<i class="fa fa-' + icon + '"></i>' +
-		'</div>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-}
 
 function add_file(elementName){
 
