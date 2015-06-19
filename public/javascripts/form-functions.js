@@ -49,12 +49,16 @@ function refresh_sort(){
 	}).bind('sortupdate', function(e, ui) {
 
 		var parent = ui.endparent.attr('data-position');
-		var elementnum = ui.endparent.children('.accordion-section').length;
+		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
-		console.log(elementnum);
-		for (i=0; i < (inputnum + 1); i++) {
-			ui.item.children('input')[i].setAttribute("name", parent + '[7]');
+
+		for (j=0; i < (elements.length + 1); i++) {
+			for (i=0; i < (elements[j].children('input').length + 1); i++) {
+				elements[j].children('input')[i].setAttribute("name", parent + '[j]');
+			}
 		}
+
+
 
     /*
 
