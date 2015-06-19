@@ -53,9 +53,9 @@ function refresh_sort(){
 		var inputnum = ui.item.children('input').length;
 
 		for (j=0; i < (elements.length + 1); j++) {
-			var element = elements[j];
-			for (i=0; i < (element.length + 1); i++) {
-				console.log(element.length);
+			var element = ui.endparent.children('.accordion-section')[j];
+			for (i=0; i < (element.children('input').length + 1); i++) {
+				console.log(element.children('input').length);
 				element.children('input')[i].setAttribute("name", parent + '[j]');
 			}
 		}
