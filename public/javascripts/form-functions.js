@@ -162,7 +162,7 @@ function add_input(elementNum, buildtype, containerClass) {
 
 		document.getElementById('section-' + elementNum).appendChild(newdiv);
 
-		if (upload) {
+		if (buildtype == 'upload') {
 
 			$("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
 
