@@ -117,7 +117,7 @@ function add_input(elementNum, buildtype, containerClass) {
 				'<div class="form-button option-icon">' +
 					'<i class="fa fa-info"></i>' +
 				'</div>' +
-				'<textarea name="data[0][' + addincount + '] class="input text-content" onkeyup="textAreaAdjust(this)" required="required" placeholder="Enter your text content here." ></textarea>';
+				'<textarea name="data[0][' + addincount + ']" class="input text-content" onkeyup="textAreaAdjust(this)" required="required" placeholder="Enter your text content here." ></textarea>';
 
 		} else if (buildtype == 'static-title') {
 
@@ -125,7 +125,7 @@ function add_input(elementNum, buildtype, containerClass) {
 				'<div class="form-button option-icon">' +
 					'<i class="fa fa-header"></i>' +
 				'</div>' +
-				'<input type="text" name="data[0][' + addincount + '] class="input text-title" required="required" placeholder="Enter your static title here." />';
+				'<input type="text" name="data[0][' + addincount + ']" class="input text-title" required="required" placeholder="Enter your static title here." />';
 
 		}
 
