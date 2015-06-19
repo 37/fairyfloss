@@ -32,6 +32,10 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 	}
 };
 
+// =========================================
+//				onSort function
+// =========================================
+
 function refresh_sort(){
 	var sectionnames = '#section-0';
 
@@ -43,8 +47,9 @@ function refresh_sort(){
 		connectWith: '.connected' ,
 		items: ':not(.accordion-section-content, #submit-button)'
 	}).bind('sortupdate', function(e, ui) {
-		var parent = ui.endparent.attr('id');
-		ui.item.find('.parent-spec').val(parent);
+
+		var parent = ui.endparent.attr('data-position');
+		ui.item.find('.parent-spec').val(parent + '7');
     /*
 
     This event is triggered when the user stopped sorting and the DOM position has changed.
@@ -57,6 +62,67 @@ function refresh_sort(){
 
     */
 	});
+}
+
+function toggleVisibility(element){
+	var target = document.getElementById(element);
+	if (target.style.display === "none"){
+		target.style.display = "block";
+	} else {
+		target.style.display = "none";
+	}
+}
+
+function textAreaAdjust(o) {
+	o.style.height = "1px";
+	o.style.height = (25+o.scrollHeight)+"px";
+}
+
+function gridHoverStyle(grid) {
+
+	resetGrid();
+
+	for(y = 0; y < 6; y++){
+		for(x = 0; x < 6; x++){
+			if (((y * 6) + x) == grid){
+				var ty = y + 1;
+				var tx = x + 1;
+			}
+		}
+	}
+
+	for(i = 0; i < ty; i++) {
+		for(j = 0; j < tx; j++){
+			var boxid = tableref[i][j];
+			document.getElementById(boxid).className="gridbox grid-hover";
+		}
+	}
+}
+
+function resetGrid() {
+	for(i = 0; i < 6; i++) {
+		for(j = 0; j < 6; j++){
+			var boxid = tableref[i][j];
+			document.getElementById(boxid).className="gridbox";
+		}
+	}
+}
+
+function translateLabel (element) {
+	var value = element.value;
+	var elid = element.id;
+	var sister = 'b' + elid.substring(1);
+	document.getElementById(sister).defaultValue = value;
+}
+// ======================================================================================
+// 			Garbage collection
+// ======================================================================================
+
+function del_element(elementName){
+
+	var trash = elementName;
+
+	document.getElementById(elementline).remove();
 }
 
 // ======================================================================================
@@ -237,60 +303,6 @@ function add_line(type, elementName, datacount) {
 // 			Static element functions || **END INPUT GENERATOR FUNCTIONS
 // ======================================================================================
 
-
-function add_list_base(elementName){
-
-	var newdiv = document.createElement('div');
-	var values = "['@']['textbox']";
-	var element_identifier = "'container" + addincount + "'";
-	newdiv.className = "element-container accordion-section";
-	newdiv.id = "container" + addincount;
-
-	newdiv.innerHTML =
-		'<input type="hidden" required="required" name="data[]" value="@<!" />' +
-		'<input type="hidden" required="required" name="data[]" value="' + elementName + '"  class="parent-spec" />' +
-		'<input type="hidden" required="required" name="data[]" value="list" />' +
-		'<button id="element-settings' + addincount + '" type="button" onclick="add_list_line(' + element_identifier + ', ' + addincount + ')" class="form-button add-option-button">' +
-			'<i class="fa fa-plus" style="margin-right:20px;"> </i>' +
-			'Add line to list' +
-		'</button>' +
-		'<a class = "settings-cog" href="#settings' + addincount + '">' +
-			'<i class="fa fa-cog"></i>' +
-		'</a>' +
-		'<div id="settings' + addincount + '" class="accordion-section-content">' +
-			'<h3>Options</h3>' +
-			'<p>Various settings will go here.</p>' +
-		'</div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	refresh_sort();
-
-	addincount++;
-}
-
-function add_list_line(elementName, datacount){
-
-	var newdiv = document.createElement('div');
-	var element_identifier = "'line" + uniqator + "'";
-	newdiv.className = "option-line";
-	newdiv.id = "line" + uniqator;
-
-	newdiv.innerHTML =
-		'<div class="form-button option-icon">' +
-		'<i class="fa fa-circle"></i>' +
-			'</div>' +
-		'<input type="text" placeholder="Enter line content here." required="required" name="data[]" class="input option-element list-content" />' +
-		'<button id="element-settings' + datacount + '" type="button" onclick="del_element(' + element_identifier + ')" class="form-button bin-button">' +
-		'<i class="fa fa-trash-o"></i>' +
-			'</button>' +
-		'<div class="clear"></div>';
-
-	document.getElementById(elementName).appendChild(newdiv);
-
-	uniqator++;
-}
-
 function add_table(elementName, tablespecs, displaytype, class_modifier, icon, settings_action){
 
 	var newdiv = document.createElement('div');
@@ -377,69 +389,4 @@ function add_section(elementName){
 	sectioncount++;
 
 	refresh_sort();
-}
-
-// ======================================================================================
-// 			MISC Passive action / styling functions
-// ======================================================================================
-
-function toggleVisibility(element){
-	var target = document.getElementById(element);
-	if (target.style.display === "none"){
-		target.style.display = "block";
-	} else {
-		target.style.display = "none";
-	}
-}
-
-function textAreaAdjust(o) {
-	o.style.height = "1px";
-	o.style.height = (25+o.scrollHeight)+"px";
-}
-
-function gridHoverStyle(grid) {
-
-	resetGrid();
-
-	for(y = 0; y < 6; y++){
-		for(x = 0; x < 6; x++){
-			if (((y * 6) + x) == grid){
-				var ty = y + 1;
-				var tx = x + 1;
-			}
-		}
-	}
-
-	for(i = 0; i < ty; i++) {
-		for(j = 0; j < tx; j++){
-			var boxid = tableref[i][j];
-			document.getElementById(boxid).className="gridbox grid-hover";
-		}
-	}
-}
-
-function resetGrid() {
-	for(i = 0; i < 6; i++) {
-		for(j = 0; j < 6; j++){
-			var boxid = tableref[i][j];
-			document.getElementById(boxid).className="gridbox";
-		}
-	}
-}
-
-function translateLabel (element) {
-	var value = element.value;
-	var elid = element.id;
-	var sister = 'b' + elid.substring(1);
-	document.getElementById(sister).defaultValue = value;
-}
-// ======================================================================================
-// 			Garbage collection
-// ======================================================================================
-
-function del_element(elementName){
-
-	var trash = elementName;
-
-	document.getElementById(elementline).remove();
 }
