@@ -223,7 +223,7 @@ function add_line(type, elementName, datacount) {
 
 	newdiv.innerHTML =
 		buildprimary +
-		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[' + datacount[0] + '][' + datacount[1] + ']" class="input option-element option-content" />' +
+		'<input id="' + uniqator + '" type="text" placeholder="' + type + ' content." required="required" name="data[' + datacount[0] + '][' + datacount[1] + ']" class="input option-element list-content" />' +
 		'<button id="element-settings' + datacount + '" type="button" onclick="#" class="form-button bin-button">' +
 			'<i class="fa fa-trash-o"></i>' +
 		'</button>';
