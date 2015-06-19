@@ -58,7 +58,7 @@ function refresh_sort(){
 			console.log(inputs);
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
-				inputs.children('input')[i].setAttribute("name", parent + '[j]');
+				inputs[i].setAttribute("name", parent + '[j]');
 			}
 		}
 
