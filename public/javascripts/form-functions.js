@@ -52,7 +52,7 @@ function refresh_sort(){
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
-		for (j=1; i < (elements.length + 1); j++) {
+		for (j=0; i < (elements.length); j++) {
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			console.log('outer loop');
 			console.log(inputs);
