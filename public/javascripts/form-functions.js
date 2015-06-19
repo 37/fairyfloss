@@ -52,12 +52,12 @@ function refresh_sort(){
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
-		for (j=0; i < (elements.length + 1); j++) {
+		for (j=0; i < (elements.length); j++) {
 			var element = ui.endparent.children('.accordion-section')[j];
 			var inputs = element.getElementsByTagName('input');
-			for (i=0; i < (inputs.length + 1); i++) {
+			for (i=0; i < (inputs.length); i++) {
 				console.log(inputs);
-				element.children('input')[i].setAttribute("name", parent + '[j]');
+				inputs.children('input')[i].setAttribute("name", parent + '[j]');
 			}
 		}
 
