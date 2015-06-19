@@ -526,6 +526,7 @@ table.dynamic-table tr {
 	margin:7.5px 15px;
 }
 
+
 .customdrop {
 	border-color: #415169!important;
 	border-style: dashed!important;
@@ -541,6 +542,11 @@ table.dynamic-table tr {
 	color:lightpink;
 }
 
+.upload-container .settings-cog {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
 /* ============================================================
 			Accordion CSS
 ==============================================================*/
