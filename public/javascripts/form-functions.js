@@ -48,11 +48,18 @@ function refresh_sort(){
 		items: ':not(.accordion-section-content, #submit-button)'
 	}).bind('sortupdate', function(e, ui) {
 
+		// https://github.com/voidberg/html5sortable/commits/master#sortupdate
+		var newcontainer = ui.parent.children('.accordion-section');
+
+		for (elements = 0; elements < newcontainer.length; elements += 1 ){
+ 		// ^^^^^
+		}
+
 		var parent = ui.endparent.attr('data-position');
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
-		for (j=0; i < (elements.length); j++) {
+		for (j=0; j < (elements.length); j++) {
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			console.log('outer loop');
 			console.log(inputs);
@@ -61,8 +68,6 @@ function refresh_sort(){
 				inputs[i].setAttribute("name", parent + '[' + j + ']');
 			}
 		}
-
-
 
     /*
 
