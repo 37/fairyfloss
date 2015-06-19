@@ -49,7 +49,7 @@ function refresh_sort(){
 	}).bind('sortupdate', function(e, ui) {
 
 		var parent = ui.endparent.attr('data-position');
-		ui.item.find('input').setAttribute("name", parent + '[7]');
+		ui.item.find(input).setAttribute("name", parent + '[7]');
     /*
 
     This event is triggered when the user stopped sorting and the DOM position has changed.
