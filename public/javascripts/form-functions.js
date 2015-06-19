@@ -1,5 +1,5 @@
 // ======================================================================================
-// 			Global variables
+//         Global variables
 // ======================================================================================
 
 var addincount = 0;
@@ -17,15 +17,15 @@ var tableref = [
 var uniqator = 9000;
 
 // ======================================================================================
-// 			Global important functions
+//          Global important functions
 // ======================================================================================
 
-Element.prototype.remove = function() {
+Element.prototype.remove = function () {
 	this.parentElement.removeChild(this);
 };
 
 NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
-	for(var i = 0, len = this.length; i < len; i++) {
+	for (var i = 0, len = this.length; i < len; i++) {
 		if(this[i] && this[i].parentElement) {
 			this[i].parentElement.removeChild(this[i]);
 		}
@@ -82,7 +82,7 @@ function add_input(elementNum, buildtype, containerClass) {
 					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
-			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+			var buildsecondary = '<div id="input-container-' + addincount + '" class="option-container"></div>';
 
 		} else if (buildtype == 'radio') {
 			// SPAWN RADIO
@@ -93,7 +93,7 @@ function add_input(elementNum, buildtype, containerClass) {
 					'<i class="fa fa-plus"></i>' +
 					'  checkbox option' +
 				'</button>';
-			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+			var buildsecondary = '<div id="input-container-' + addincount + '" class="option-container"></div>';
 
 		} else if (buildtype == 'dropdown') {
 			// SPAWN DROPDOWN
@@ -102,9 +102,9 @@ function add_input(elementNum, buildtype, containerClass) {
 			var buildprimary =
 				'<button id="element-settings' + addincount + '" type="button" onclick="add_line(' + escape[0] + ', ' + escape[1] + ', [' + elementNum + ', ' + addincount + '])" class="form-button add-option-button">' +
 					'<i class="fa fa-plus"></i>' +
-					'  checkbox option' +
+					' checkbox option' +
 				'</button>';
-			var buildsecondary =	'<div id="input-container-' + addincount + '" class="option-container"></div>';
+			var buildsecondary = '<div id="input-container-' + addincount + '" class="option-container"></div>';
 
 		} else if (buildtype == 'upload') {
 			// SPAWN UPLOADER
@@ -163,9 +163,7 @@ function add_input(elementNum, buildtype, containerClass) {
 		document.getElementById('section-' + elementNum).appendChild(newdiv);
 
 		if (buildtype == 'upload') {
-
-			$("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.</span>' });
-
+            $("div#mockup-dropzone").dropzone({ url: "/upload", dictDefaultMessage: '<span class="dropmessage">Drop files here or click to upload.</span><br><br><span class="demo">(This is just a demo. Selected files are <strong>not</strong> actually uploaded.)</span>' });
 		}
 
 		refresh_sort();
