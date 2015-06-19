@@ -52,9 +52,10 @@ function refresh_sort(){
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
-		for (j=0; i < (elements.length + 1); i++) {
-			for (i=0; i < (elements[j].children('input').length + 1); i++) {
-				elements[j].children('input')[i].setAttribute("name", parent + '[j]');
+		for (j=0; i < (elements.length + 1); j++) {
+			var element = elements[j];
+			for (i=0; i < (element.children('input').length + 1); i++) {
+				element.children('input')[i].setAttribute("name", parent + '[j]');
 			}
 		}
 
