@@ -49,11 +49,6 @@ function refresh_sort(){
 	}).bind('sortupdate', function(e, ui) {
 
 		// https://github.com/voidberg/html5sortable/commits/master#sortupdate
-		var newcontainer = ui.parent.children('.accordion-section');
-
-		for (elements = 0; elements < newcontainer.length; elements += 1 ){
- 		// ^^^^^
-		}
 
 		var parent = ui.endparent.attr('data-position');
 		var elements = ui.endparent.children('.accordion-section');
