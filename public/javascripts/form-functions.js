@@ -92,11 +92,27 @@ function toggleIf(element, type, num) {
 	var iftarget = document.getElementById('if-' + num);
 	var deltarget = document.getElementById('del-' + num);
 	if (deltarget.style.display === "none"){
-		target.style.display = "block";
+		$(iftarget).animate({
+        width: "49.998%"
+    }, {
+        duration: 300,
+        specialEasing: {
+          width: 'linear'
+        }
+    });
+		deltarget.style.display = "block";
 		$(deltarget).show("slide", { direction: "left" }, 300);
 	} else {
 		$(deltarget).hide("slide", { direction: "right" }, 300);
-		$(deltarget).style.display = "none"
+		deltarget.style.display = "none";
+		$(iftarget).animate({
+        width: "100%"
+    }, {
+        duration: 300,
+        specialEasing: {
+          width: 'linear'
+        }
+    });
 	}
 }
 
