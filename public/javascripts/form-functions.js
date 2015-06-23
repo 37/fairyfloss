@@ -131,7 +131,7 @@ function toggleDel(element, type, num) {
     });
 
 		// Remove prompt.
-		$("#del-" + num + " > .label > h3").innerHTML = 'Scrap me';
+		$("#del-" + num + " > .label > h3").html('Scrap me');
 
 		// Remove buttons
 		$("#del-" + num + " > .s-container").delay(300).queue(function (next) {
@@ -168,7 +168,7 @@ function toggleDel(element, type, num) {
       }
     });
 		// Show prompt.
-		$("#del-" + num + " > .label > h3").innerHTML = 'Are you sure?';
+		$("#del-" + num + " > .label > h3").html('Are you sure?');
 
 		// Display and animate height of delete options container once fully slid out.
 		$("#del-" + num + " > .s-container").delay(300).queue(function(next){
