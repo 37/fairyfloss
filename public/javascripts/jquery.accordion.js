@@ -79,7 +79,6 @@ $(document).ready(function() {
 // 				SECTION ACCORDION FUNCTION
 //=========================================================================//
 
-
 	$('#formbox').on('click', '.section-expand', function(e) {
 		// Grab current anchor value
 		var currentAttrValue = $(this).attr('href');
