@@ -198,13 +198,13 @@ html, body {
   font-size: 20px;
 }
 
-.setting-container {
-  float: left;
-  width: 100%;
+.el-if,
+.el-del {
   text-align: center;
 }
 
-.setting-container i.fa {
+.el-if i.fa,
+.el-del i.fa {
   font-size: 30px;
   margin-top: 20px;
 }

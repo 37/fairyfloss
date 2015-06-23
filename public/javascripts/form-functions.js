@@ -258,7 +258,7 @@ function add_input(elementNum, buildtype, containerClass) {
 				'<a class = "settings-cog" href="#settings' + addincount + '">' +
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
-				'<div id="settings' + addincount + '" class="accordion-section-content setting-container">' +
+				'<div id="settings' + addincount + '" class="accordion-section-content">' +
 					'<div class="six column el-if">' +
 						'<i class="fa fa-paper-plane-o"></i>' +
 						'<h3>Let\'s do something cool</h3>' +
