@@ -106,7 +106,6 @@ $(document).ready(function() {
 
 	$('#formbox').on('click', '.el-if', function(e) {
 		console.log('elif method called!');
-		var target = document.getElementById(element);
 
 		var delContainer = $(this).getElementsByClassName('.el-del');
 
