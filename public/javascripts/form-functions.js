@@ -335,15 +335,15 @@ function add_input(elementNum, buildtype, containerClass) {
 
 		settings =
 			'<div id="settings' + addincount + '" class="accordion-section-content">' +
-				'<div id="if-' + addincount + '" class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-					'<div class="label">' +
+				'<div id="if-' + addincount + '" class="six column el-if">' +
+					'<div class="label" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
 						'<i class="fa fa-paper-plane-o"></i>' +
 						'<h3>Let\'s do something cool</h3>' +
 					'</div>' +
 					'<div class="s-container"></div>' +
 				'</div>'+
-				'<div id="del-' + addincount + '" class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-					'<div class="label">' +
+				'<div id="del-' + addincount + '" class="six column el-del">' +
+					'<div class="label" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
 						'<i class="fa fa-trash-o"></i>' +
 						'<h3>Scrap me</h3>' +
 					'</div>' +
