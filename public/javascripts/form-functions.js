@@ -89,7 +89,7 @@ function refresh_sort(){
 function toggleIf(element, type){
 
 	var target = document.getElementById(element);
-	var delContainer = $(target).getElementsByClassName('.el-del');
+	var delContainer = $(this).getElementsByClassName('.el-del');
 	console.log(delContainer);
 	var targetLabel = $(this).getElementsByClassName('.label');
 	var targetContainer = $(this).getElementsByClassName('.container');
