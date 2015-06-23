@@ -150,7 +150,7 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").style.display = "block";
+		$("#del-" + num + " > .s-container").css("display", "block");
 		$("#del-" + num + " > .s-container").delay(300).animate({
         height: '70px'
     }, {
