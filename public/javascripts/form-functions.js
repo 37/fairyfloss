@@ -104,20 +104,43 @@ function toggleIf(element, type, num) {
 	} else {
 
 		$(deltarget).hide("slide", { direction: "right" }, 300);
-		$(iftarget).delay(300).animateWidth("100%", 300);
-
+		$(iftarget).delay(300).animate({
+        width: "100%"
+    }, {
+        duration: 300,
+        specialEasing: {
+          width: 'linear'
+        }
+    });
 	}
 }
 
-function animateWidth(width, time){
-	animate({
-			width: width
-	}, {
-			duration: time,
-			specialEasing: {
-				width: 'linear'
-			}
-	});
+function toggleDel(element, type, num) {
+
+	var iftarget = document.getElementById('if-' + num);
+	var deltarget = document.getElementById('del-' + num);
+	if (iftarget.style.display === "none"){
+		$(iftarget).animate({
+        width: "49.998%"
+    }, {
+        duration: 300,
+        specialEasing: {
+          width: 'linear'
+        }
+    });
+		$(iftarget).delay(300).show("slide", { direction: "left" }, 300);
+	} else {
+
+		$(iftarget).hide("slide", { direction: "left" }, 300);
+		$(deltarget).delay(300).animate({
+        width: "100%"
+    }, {
+        duration: 300,
+        specialEasing: {
+          width: 'linear'
+        }
+    });
+	}
 }
 
 function toggleVisibility(element){
