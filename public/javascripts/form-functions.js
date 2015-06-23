@@ -148,7 +148,9 @@ function toggleDel(element, type, num) {
 		});
 
 	} else {
+		//hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
+		//slide out delete options to full width
 		$(deltarget).delay(300).animate({
         width: "100%"
     }, {
@@ -157,6 +159,8 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
+
+		// display and animate height of delete options container once fully slid out.
 		$("#del-" + num + " > .s-container").delay(300).queue(function(next){
 			$("#del-" + num + " > .s-container").css("display", "block");
 			next();
