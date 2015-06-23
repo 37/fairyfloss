@@ -121,7 +121,6 @@ function toggleDel(element, type, num) {
 	var deltarget = document.getElementById('del-' + num);
 	if (iftarget.style.display === "none"){
 		$(deltarget '.s-container').animate({
-        height: "0px",
 				display: 'none'
     }, {
         duration: 300,
