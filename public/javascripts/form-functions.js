@@ -278,14 +278,14 @@ function add_input(elementNum, buildtype, containerClass) {
 							'<i class="fa fa-paper-plane-o"></i>' +
 							'<h3>Let\'s do something cool</h3>' +
 						'</div>' +
-						'<div class="container"></div>' +
+						'<div class="s-container"></div>' +
 					'</div>'+
 					'<div id="del-' + addincount + '" class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
 						'<div class="label">' +
 							'<i class="fa fa-trash-o"></i>' +
 							'<h3>Scrap me</h3>' +
 						'</div>' +
-						'<div class="container"></div>' +
+						'<div class="s-container"></div>' +
 					'</div>'+
 				'</div>';
 		}
