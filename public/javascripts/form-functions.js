@@ -110,7 +110,7 @@ function toggleIf(element, type, num) {
 }
 
 function animateWidth(width, time){
-	.animate({
+	animate({
 			width: width
 	}, {
 			duration: time,
