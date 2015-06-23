@@ -259,11 +259,11 @@ function add_input(elementNum, buildtype, containerClass) {
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
 				'<div id="settings' + addincount + '" class="accordion-section-content">' +
-					'<div class="six column el-if">' +
+					'<div class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\')">' +
 						'<i class="fa fa-paper-plane-o"></i>' +
 						'<h3>Let\'s do something cool</h3>' +
 					'</div>'+
-					'<div class="six column el-del">' +
+					'<div class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\')">' +
 						'<i class="fa fa-trash-o"></i>' +
 						'<h3>Scrap me</h3>' +
 					'</div>'+
