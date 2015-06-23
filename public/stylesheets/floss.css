@@ -198,6 +198,12 @@ html, body {
   font-size: 20px;
 }
 
+.setting-container {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
 /* -----------INPUT ELEMENTS------------- */
 
 .element-container {
