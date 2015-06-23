@@ -162,10 +162,10 @@ function toggleDel(element, type, num) {
 		$(deltarget).delay(300).animate({
         width: "100%"
     }, {
-        duration: 300,
-        specialEasing: {
-          width: 'linear'
-        }
+      duration: 300,
+      specialEasing: {
+        width: 'linear'
+      }
     });
 		// Show prompt.
 		$("#del-" + num + " > .label > h3").innerHTML = 'Are you sure?';
@@ -176,12 +176,12 @@ function toggleDel(element, type, num) {
 			next();
 		});
 		$("#del-" + num + " > .s-container").delay(300).animate({
-        height: '70px'
+      height: '70px'
     }, {
-        duration: 300,
-        specialEasing: {
-          height: 'linear'
-        }
+      duration: 300,
+      specialEasing: {
+        height: 'linear'
+      }
     });
 	}
 }
