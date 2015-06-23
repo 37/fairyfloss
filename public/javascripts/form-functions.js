@@ -48,18 +48,26 @@ function refresh_sort(){
 		items: ':not(.accordion-section-content, #submit-button)'
 	}).bind('sortupdate', function(e, ui) {
 
-		// https://github.com/voidberg/html5sortable/commits/master#sortupdate
-
 		var parent = ui.endparent.attr('data-position');
 		var elements = ui.endparent.children('.accordion-section');
 		var inputnum = ui.item.children('input').length;
 
+		// for each container element within the parent
 		for (j=0; j < (elements.length); j++) {
-			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
-			console.log('outer loop');
+			// Find all inputs and textareas, binding them to an array 'order_me'.
+			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input' || 'textarea');
 			console.log(inputs);
+			//var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
+
+			// store all inputs and textareas in 'order_me'.
+			//var array_inp = Array.prototype.slice.call(inputs);
+			//var array_txt = Array.prototype.slice.call(textareas);
+			//var order_me = array_inp.concat(array_txt);
+
+			// for each input or text area in 'order_me' (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
+				//order the elements within this container.
 				inputs[i].setAttribute("name", parent + '[' + j + ']');
 			}
 		}
