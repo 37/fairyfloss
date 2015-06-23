@@ -134,7 +134,7 @@ function toggleDel(element, type, num) {
 			next();
 		});
 
-		$(deltarget).delay(300).animate({
+		$(deltarget).animate({
         width: "49.998%"
     }, {
         duration: 300,
