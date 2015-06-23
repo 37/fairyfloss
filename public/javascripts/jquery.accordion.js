@@ -100,27 +100,4 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-// ========================================================================//
-//				ELEMENT IF SELECTOR FUNCTION
-// ========================================================================//
-
-	$('#formbox').on('click', '.el-if', function(e) {
-		console.log('elif method called!');
-
-		var delContainer = $(this).getElementsByClassName('.el-del');
-
-		console.log(delContainer);
-
-		var targetLabel = $(this).getElementsByClassName('.label');
-		var targetContainer = $(this).getElementsByClassName('.container');
-
-		if (delContainer.style.display === "none"){
-			delContainer.style.display = "block";
-		} else {
-			delContainer.style.display = "none";
-		}
-
-		e.preventDefault();
-	});
-
 });
