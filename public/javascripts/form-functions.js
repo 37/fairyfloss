@@ -129,7 +129,7 @@ function toggleDel(element, type, num) {
           height: 'linear'
         }
     });
-		$(deltarget).closest(".s-container").style.display = "none";
+		$("#del-" + num + " > .s-container").css("display", "none");
 		$(deltarget).delay(300).animate({
         width: "49.998%"
     }, {
