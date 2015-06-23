@@ -129,7 +129,11 @@ function toggleDel(element, type, num) {
           height: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").delay(300).css("display", "none");
+		$("#del-" + num + " > .s-container").delay(300).queue(function (next) {
+			$("#del-" + num + " > .s-container").css("display", "none");
+			next();
+		});
+
 		$(deltarget).delay(300).animate({
         width: "49.998%"
     }, {
