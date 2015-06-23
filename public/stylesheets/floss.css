@@ -218,6 +218,14 @@ html, body {
   color: white;
   background-color: #E36A5C;
 }
+.el-del .s-container, .el-if .s-container {
+  width: calc(100% - 20px);
+  height: 0px;
+  background-color: rgba(255,255,255,0.7);
+  margin: 10px;
+}
+
+
 /* -----------INPUT ELEMENTS------------- */
 
 .element-container {
