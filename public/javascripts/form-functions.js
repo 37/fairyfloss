@@ -100,19 +100,19 @@ function toggleIf(element, type, num) {
           width: 'linear'
         }
     });
+		$(deltarget).show("slide", { direction: "left" }, 330);
 		deltarget.style.display = "block";
-		$(deltarget).show("slide", { direction: "left" }, 300);
 	} else {
 		$(deltarget).hide("slide", { direction: "right" }, 300);
-		deltarget.style.display = "none";
 		$(iftarget).animate({
         width: "100%"
     }, {
-        duration: 300,
+        duration: 330,
         specialEasing: {
           width: 'linear'
         }
     });
+		deltarget.style.display = "none";
 	}
 }
 
