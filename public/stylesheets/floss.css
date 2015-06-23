@@ -204,6 +204,20 @@ html, body {
   text-align: center;
 }
 
+.setting-container i.fa {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.el-if {
+  color: white;
+  background-color: #5CE3A1;
+}
+
+.el-del {
+  color: white;
+  background-color: #E36A5C;
+}
 /* -----------INPUT ELEMENTS------------- */
 
 .element-container {

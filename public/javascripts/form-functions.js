@@ -259,11 +259,11 @@ function add_input(elementNum, buildtype, containerClass) {
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
 				'<div id="settings' + addincount + '" class="accordion-section-content setting-container">' +
-					'<div class="six column">' +
+					'<div class="six column el-if">' +
 						'<i class="fa fa-paper-plane-o"></i>' +
 						'<h3>Let\'s do something cool</h3>' +
 					'</div>'+
-					'<div class="six column">' +
+					'<div class="six column el-del">' +
 						'<i class="fa fa-trash-o"></i>' +
 						'<h3>Scrap me</h3>' +
 					'</div>'+
