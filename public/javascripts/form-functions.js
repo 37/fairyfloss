@@ -86,28 +86,7 @@ function refresh_sort(){
 	});
 }
 
-$('#formbox').on('click', '.settings-cog', function(e) {
-	// Grab current anchor value
-	var currentAttrValue = $(this).attr('href');
-
-	if($(e.target).is('.active')) {
-		close_settings_section();
-	}else {
-		close_settings_section();
-
-		// Add active class to section title
-
-		$('i', this).removeClass('fa-cog');
-		$('i', this).addClass('fa-chevron-up active');
-		// Open up the hidden content panel
-		$('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
-		$(this).addClass('active');
-	}
-
-	e.preventDefault();
-});
-
-function toggleif(element, type){
+function toggleIf(element, type){
 
 	var target = document.getElementById(element);
 	var delContainer = $(target).getElementsByClassName('.el-del');
