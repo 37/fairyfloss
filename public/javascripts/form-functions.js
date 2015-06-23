@@ -129,12 +129,12 @@ function toggleDel(element, type, num) {
           height: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").delay(320).queue(function (next) {
+		$("#del-" + num + " > .s-container").delay(300).queue(function (next) {
 			$("#del-" + num + " > .s-container").css("display", "none");
 			next();
 		});
 
-		$(deltarget).delay(350).animate({
+		$(deltarget).delay(300).animate({
         width: "49.998%"
     }, {
         duration: 300,
@@ -144,7 +144,6 @@ function toggleDel(element, type, num) {
     });
 		$(iftarget).delay(400).show("slide", { direction: "left" }, 300);
 	} else {
-		deltarget.style.float = "right";
 		$(iftarget).hide("slide", { direction: "left" }, 300);
 		$(deltarget).delay(300).animate({
         width: "100%"

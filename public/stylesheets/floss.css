@@ -198,6 +198,10 @@ html, body {
   font-size: 20px;
 }
 
+.el-del {
+  float: right;
+}
+
 .el-if,
 .el-del {
   text-align: center;
