@@ -157,7 +157,10 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").css("display", "block");
+		$("#del-" + num + " > .s-container").delay(300).queue(function(next){
+			$("#del-" + num + " > .s-container").css("display", "block");
+			next();
+		});
 		$("#del-" + num + " > .s-container").delay(300).animate({
         height: '70px'
     }, {
