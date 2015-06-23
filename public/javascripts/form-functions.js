@@ -120,8 +120,8 @@ function toggleDel(element, type, num) {
 	var iftarget = document.getElementById('if-' + num);
 	var deltarget = document.getElementById('del-' + num);
 	if (iftarget.style.display === "none"){
-		$(deltarget > ".s-container").animate({
-        height: "0px",
+		$(deltarget + " > .s-container").animate({
+        height: '0px',
 				display: 'none'
     }, {
         duration: 300,
