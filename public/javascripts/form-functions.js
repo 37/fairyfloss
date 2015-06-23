@@ -121,6 +121,13 @@ function toggleDel(element, type, num) {
 	var deltarget = document.getElementById('del-' + num);
 	if (iftarget.style.display === "none"){
 		$(deltarget).animate({
+        height: "0px"
+    }, {
+        duration: 300,
+        specialEasing: {
+          height: 'linear'
+        }
+    }).delay(300).animate({
         width: "49.998%"
     }, {
         duration: 300,
@@ -138,6 +145,13 @@ function toggleDel(element, type, num) {
         duration: 300,
         specialEasing: {
           width: 'linear'
+        }
+    }).delay(300).animate({
+        height: "auto"
+    }, {
+        duration: 300,
+        specialEasing: {
+          height: 'linear'
         }
     });
 	}
