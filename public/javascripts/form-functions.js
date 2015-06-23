@@ -86,25 +86,6 @@ function refresh_sort(){
 	});
 }
 
-
-$('#formbox').on('click', '.el-if', function(e) {
-
-	var target = document.getElementById(element);
-
-	var delContainer = $(this).getElementsByClassName('.el-del');
-	console.log(delContainer);
-	var targetLabel = $(this).getElementsByClassName('.label');
-	var targetContainer = $(this).getElementsByClassName('.container');
-
-	if (delContainer.style.display === "none"){
-		delContainer.style.display = "block";
-	} else {
-		delContainer.style.display = "none";
-	}
-
-	e.preventDefault();
-});
-
 function toggleVisibility(element){
 	var target = document.getElementById(element);
 	if (target.style.display === "none"){
