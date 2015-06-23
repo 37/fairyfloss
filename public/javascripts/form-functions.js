@@ -129,12 +129,17 @@ function toggleDel(element, type, num) {
           height: 'linear'
         }
     });
+
+		// Remove prompt.
+		$("#del-" + num + " > .label > h3").innerHTML = 'Scrap me';
+
+		// Remove buttons
 		$("#del-" + num + " > .s-container").delay(300).queue(function (next) {
 			$("#del-" + num + " > .s-container").css("display", "none");
-			$("#del-" + num + " > .label > h3").innerHTML = 'Scrap me';
 			next();
 		});
 
+		// Slide back to 50% width.
 		$(deltarget).animate({
         width: "49.998%"
     }, {
@@ -143,15 +148,17 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
+
+		// Expand conditionals
 		$(iftarget).delay(400).queue(function(next){
 			$(iftarget).show("slide", { direction: "left" }, 300);
 			next();
 		});
 
 	} else {
-		//hide conditionals
+		// Hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
-		//slide out delete options to full width
+		// Slide out delete options to full width
 		$(deltarget).delay(300).animate({
         width: "100%"
     }, {
@@ -160,11 +167,12 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
+		// Show prompt.
+		$("#del-" + num + " > .label > h3").innerHTML = 'Are you sure?';
 
-		// display and animate height of delete options container once fully slid out.
+		// Display and animate height of delete options container once fully slid out.
 		$("#del-" + num + " > .s-container").delay(300).queue(function(next){
 			$("#del-" + num + " > .s-container").css("display", "block");
-			$("#del-" + num + " > .label > h3").innerHTML = 'Are you sure?';
 			next();
 		});
 		$("#del-" + num + " > .s-container").delay(300).animate({
