@@ -99,13 +99,13 @@ function toggleIf(element, type, num) {
         specialEasing: {
           width: 'linear'
         }
-    }).delay(300);
-		$(deltarget).show("slide", { direction: "left" }, 330);
+    });
+		$(deltarget).delay(300).show("slide", { direction: "left" }, 330);
 		deltarget.style.display = "block";
 	} else {
 
-		$(deltarget).hide("slide", { direction: "right" }, 300).delay(300);
-		$(iftarget).animate({
+		$(deltarget).hide("slide", { direction: "right" }, 300);
+		$(iftarget).delay(300).animate({
         width: "100%"
     }, {
         duration: 330,
