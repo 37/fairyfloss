@@ -99,11 +99,12 @@ function toggleIf(element, type, num) {
         specialEasing: {
           width: 'linear'
         }
-    });
+    }).delay(300);
 		$(deltarget).show("slide", { direction: "left" }, 330);
 		deltarget.style.display = "block";
 	} else {
-		$(deltarget).hide("slide", { direction: "right" }, 300);
+
+		$(deltarget).hide("slide", { direction: "right" }, 300).delay(300);
 		$(iftarget).animate({
         width: "100%"
     }, {
@@ -112,7 +113,7 @@ function toggleIf(element, type, num) {
           width: 'linear'
         }
     });
-		deltarget.style.display = "none";
+
 	}
 }
 
