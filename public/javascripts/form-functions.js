@@ -133,7 +133,6 @@ function toggleDel(element, type, num) {
 		deltarget.style.float = "right";
 		$(iftarget).hide("slide", { direction: "left" }, 300);
 		$(deltarget).delay(300).animate({
-				floar:right;
         width: "100%"
     }, {
         duration: 300,
