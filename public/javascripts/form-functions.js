@@ -131,6 +131,7 @@ function toggleDel(element, type, num) {
     });
 		$("#del-" + num + " > .s-container").delay(300).queue(function (next) {
 			$("#del-" + num + " > .s-container").css("display", "none");
+			$("#del-" + num + " > .label > h3").innerHTML = 'Scrap me';
 			next();
 		});
 
@@ -163,6 +164,7 @@ function toggleDel(element, type, num) {
 		// display and animate height of delete options container once fully slid out.
 		$("#del-" + num + " > .s-container").delay(300).queue(function(next){
 			$("#del-" + num + " > .s-container").css("display", "block");
+			$("#del-" + num + " > .label > h3").innerHTML = 'Are you sure?';
 			next();
 		});
 		$("#del-" + num + " > .s-container").delay(300).animate({
