@@ -57,7 +57,7 @@ function refresh_sort(){
 			// Find all inputs and textareas, binding them to an array 'order_me'.
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
-			
+
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
@@ -259,8 +259,14 @@ function add_input(elementNum, buildtype, containerClass) {
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
 				'<div id="settings' + addincount + '" class="accordion-section-content">' +
-					'<h3>Options</h3>' +
-					'<p>Various settings will go here.</p>' +
+					'<div class="six column">' +
+						'<i class="fa fa-paper-plane-o"></i>' +
+						'<h3>Let\'s do something cool</h3>' +
+					'</div>'+
+					'<div class="six column">' +
+						'<i class="fa fa-trash-o"></i>' +
+						'<h3>Scrap me</h3>' +
+					'</div>'+
 				'</div>';
 		}
 
