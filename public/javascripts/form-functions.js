@@ -142,7 +142,11 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
-		$(iftarget).delay(400).show("slide", { direction: "left" }, 300);
+		$(iftarget).delay(400).queue(function(next){
+			$(iftarget).show("slide", { direction: "left" }, 300);
+			next();
+		});
+
 	} else {
 		$(iftarget).hide("slide", { direction: "left" }, 300);
 		$(deltarget).delay(300).animate({
