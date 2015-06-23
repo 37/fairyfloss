@@ -150,7 +150,7 @@ function toggleDel(element, type, num) {
         }
     });
 		$("#del-" + num + " > .s-container").delay(300).animate({
-        height: 'auto',
+        height: '70px',
 				display: 'block'
     }, {
         duration: 300,
