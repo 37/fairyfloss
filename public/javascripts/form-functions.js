@@ -120,15 +120,16 @@ function toggleDel(element, type, num) {
 	var iftarget = document.getElementById('if-' + num);
 	var deltarget = document.getElementById('del-' + num);
 	if (iftarget.style.display === "none"){
+
 		$("#del-" + num + " > .s-container").animate({
-        height: '0px',
-				display: 'none'
+        height: '0px'
     }, {
         duration: 300,
         specialEasing: {
           height: 'linear'
         }
     });
+		deltarget.style.display = "none";
 		$(deltarget).delay(300).animate({
         width: "49.998%"
     }, {
@@ -149,9 +150,9 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
+		deltarget.style.display = "block";
 		$("#del-" + num + " > .s-container").delay(300).animate({
-        height: '70px',
-				display: 'block'
+        height: '70px'
     }, {
         duration: 300,
         specialEasing: {
