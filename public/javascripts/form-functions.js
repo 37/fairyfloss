@@ -86,9 +86,11 @@ function refresh_sort(){
 	});
 }
 
-function toggleIf(element, type){
+
+$('#formbox').on('click', '.el-if', function(e) {
 
 	var target = document.getElementById(element);
+
 	var delContainer = $(this).getElementsByClassName('.el-del');
 	console.log(delContainer);
 	var targetLabel = $(this).getElementsByClassName('.label');
@@ -99,7 +101,9 @@ function toggleIf(element, type){
 	} else {
 		delContainer.style.display = "none";
 	}
-}
+
+	e.preventDefault();
+});
 
 function toggleVisibility(element){
 	var target = document.getElementById(element);
