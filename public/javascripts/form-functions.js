@@ -129,7 +129,7 @@ function toggleDel(element, type, num) {
           height: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").style.display = "none";
+		$(deltarget).closest(".s-container").style.display = "none";
 		$(deltarget).delay(300).animate({
         width: "49.998%"
     }, {
@@ -150,7 +150,7 @@ function toggleDel(element, type, num) {
           width: 'linear'
         }
     });
-		$("#del-" + num + " > .s-container").style.display = "block";
+		$(deltarget).closest(".s-container").style.display = "block";
 		$("#del-" + num + " > .s-container").delay(300).animate({
         height: '70px'
     }, {
