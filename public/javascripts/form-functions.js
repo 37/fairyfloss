@@ -86,6 +86,42 @@ function refresh_sort(){
 	});
 }
 
+$('#formbox').on('click', '.settings-cog', function(e) {
+	// Grab current anchor value
+	var currentAttrValue = $(this).attr('href');
+
+	if($(e.target).is('.active')) {
+		close_settings_section();
+	}else {
+		close_settings_section();
+
+		// Add active class to section title
+
+		$('i', this).removeClass('fa-cog');
+		$('i', this).addClass('fa-chevron-up active');
+		// Open up the hidden content panel
+		$('.accordion ' + currentAttrValue).slideDown(300).addClass('open');
+		$(this).addClass('active');
+	}
+
+	e.preventDefault();
+});
+
+function toggleif(element, type){
+
+	var target = document.getElementById(element);
+	var delContainer = $(target).getElementsByClassName('.el-del');
+	console.log(delContainer);
+	var targetLabel = $(this).getElementsByClassName('.label');
+	var targetContainer = $(this).getElementsByClassName('.container');
+
+	if (delContainer.style.display === "none"){
+		target.style.display = "block";
+	} else {
+		target.style.display = "none";
+	}
+}
+
 function toggleVisibility(element){
 	var target = document.getElementById(element);
 	if (target.style.display === "none"){
@@ -260,12 +296,18 @@ function add_input(elementNum, buildtype, containerClass) {
 				'</a>' +
 				'<div id="settings' + addincount + '" class="accordion-section-content">' +
 					'<div class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\')">' +
-						'<i class="fa fa-paper-plane-o"></i>' +
-						'<h3>Let\'s do something cool</h3>' +
+						'<div class="label">' +
+							'<i class="fa fa-paper-plane-o"></i>' +
+							'<h3>Let\'s do something cool</h3>' +
+						'</div>' +
+						'<div class="container"></div>' +
 					'</div>'+
 					'<div class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\')">' +
-						'<i class="fa fa-trash-o"></i>' +
-						'<h3>Scrap me</h3>' +
+						'<div class="label">' +
+							'<i class="fa fa-trash-o"></i>' +
+							'<h3>Scrap me</h3>' +
+						'</div>' +
+						'<div class="container"></div>' +
 					'</div>'+
 				'</div>';
 		}
