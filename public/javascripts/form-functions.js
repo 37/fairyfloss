@@ -290,6 +290,23 @@ function add_input(elementNum, buildtype, containerClass) {
 
 		}
 
+		settings =
+			'<div id="settings' + addincount + '" class="accordion-section-content">' +
+				'<div id="if-' + addincount + '" class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
+					'<div class="label">' +
+						'<i class="fa fa-paper-plane-o"></i>' +
+						'<h3>Let\'s do something cool</h3>' +
+					'</div>' +
+					'<div class="s-container"></div>' +
+				'</div>'+
+				'<div id="del-' + addincount + '" class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
+					'<div class="label">' +
+						'<i class="fa fa-trash-o"></i>' +
+						'<h3>Scrap me</h3>' +
+					'</div>' +
+					'<div class="s-container"></div>' +
+				'</div>'+
+			'</div>';
 		newdiv.id = "container" + addincount;
 		newdiv.className = "accordion-section " + containerClass;
 
@@ -301,22 +318,7 @@ function add_input(elementNum, buildtype, containerClass) {
 				'<a class = "settings-cog" href="#settings' + addincount + '">' +
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
-				'<div id="settings' + addincount + '" class="accordion-section-content">' +
-					'<div id="if-' + addincount + '" class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-						'<div class="label">' +
-							'<i class="fa fa-paper-plane-o"></i>' +
-							'<h3>Let\'s do something cool</h3>' +
-						'</div>' +
-						'<div class="s-container"></div>' +
-					'</div>'+
-					'<div id="del-' + addincount + '" class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-						'<div class="label">' +
-							'<i class="fa fa-trash-o"></i>' +
-							'<h3>Scrap me</h3>' +
-						'</div>' +
-						'<div class="s-container"></div>' +
-					'</div>'+
-				'</div>' +
+				settings +
 				buildsecondary + '';
 
 		} else {
@@ -327,22 +329,7 @@ function add_input(elementNum, buildtype, containerClass) {
 				'<a class = "settings-cog" href="#settings' + addincount + '">' +
 					'<i class="fa fa-cog"></i>' +
 				'</a>' +
-				'<div id="settings' + addincount + '" class="accordion-section-content">' +
-					'<div id="if-' + addincount + '" class="six column el-if" onClick="toggleIf(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-						'<div class="label">' +
-							'<i class="fa fa-paper-plane-o"></i>' +
-							'<h3>Let\'s do something cool</h3>' +
-						'</div>' +
-						'<div class="s-container"></div>' +
-					'</div>'+
-					'<div id="del-' + addincount + '" class="six column el-del" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')">' +
-						'<div class="label">' +
-							'<i class="fa fa-trash-o"></i>' +
-							'<h3>Scrap me</h3>' +
-						'</div>' +
-						'<div class="s-container"></div>' +
-					'</div>'+
-				'</div>';
+				settings;
 		}
 
 		document.getElementById('section-' + elementNum).appendChild(newdiv);
