@@ -100,15 +100,14 @@ function toggleIf(element, type, num) {
           width: 'linear'
         }
     });
-		$(deltarget).delay(300).show("slide", { direction: "left" }, 330);
-		deltarget.style.display = "block";
+		$(deltarget).delay(300).show("slide", { direction: "left" }, 300);
 	} else {
 
 		$(deltarget).hide("slide", { direction: "right" }, 300);
 		$(iftarget).delay(300).animate({
         width: "100%"
     }, {
-        duration: 330,
+        duration: 300,
         specialEasing: {
           width: 'linear'
         }
