@@ -116,9 +116,9 @@ function toggleif(element, type){
 	var targetContainer = $(this).getElementsByClassName('.container');
 
 	if (delContainer.style.display === "none"){
-		target.style.display = "block";
+		delContainer.style.display = "block";
 	} else {
-		target.style.display = "none";
+		delContainer.style.display = "none";
 	}
 }
 
