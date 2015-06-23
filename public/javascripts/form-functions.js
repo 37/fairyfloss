@@ -55,20 +55,20 @@ function refresh_sort(){
 		// for each container element within the parent
 		for (j=0; j < (elements.length); j++) {
 			// Find all inputs and textareas, binding them to an array 'order_me'.
-			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input' || 'textarea');
-			console.log(inputs);
-			//var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
-
-			// store all inputs and textareas in 'order_me'.
-			//var array_inp = Array.prototype.slice.call(inputs);
-			//var array_txt = Array.prototype.slice.call(textareas);
-			//var order_me = array_inp.concat(array_txt);
-
-			// for each input or text area in 'order_me' (within this element container).
+			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
+			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
+			
+			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
 				//order the elements within this container.
 				inputs[i].setAttribute("name", parent + '[' + j + ']');
+			}
+
+			for (i=0; i < (textareas.length); i++) {
+				console.log('inner loop');
+				//order the elements within this container.
+				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
 		}
 
