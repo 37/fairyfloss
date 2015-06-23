@@ -318,7 +318,10 @@ function add_input(elementNum, buildtype, containerClass) {
 						'<i class="fa fa-trash-o"></i>' +
 						'<h3>Scrap me</h3>' +
 					'</div>' +
-					'<div class="s-container"></div>' +
+					'<div class="s-container">' +
+						'<i class="fa fa-check"></i>' +
+						'<i class="fa fa-close"></i>' +
+					'</div>' +
 				'</div>'+
 			'</div>';
 		newdiv.id = "container" + addincount;
