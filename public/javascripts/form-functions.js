@@ -100,7 +100,7 @@ function toggleIf(element, type, num) {
           width: 'linear'
         }
     });
-		$(deltarget).delay(300).show("slide", { direction: "left" }, 300);
+		$(deltarget).delay(300).show("slide", { direction: "right" }, 300);
 	} else {
 
 		$(deltarget).hide("slide", { direction: "right" }, 300);
