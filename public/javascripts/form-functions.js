@@ -74,7 +74,7 @@ function refresh_sort(){
 			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
 			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
 			var el = ui.endparent.children('.accordion-section')[j];
-			var elid = el.attr('id');
+			var elid = $(el).attr('id');
 			console.log(elid);
 
 			// for each input or text area (within this element container).
