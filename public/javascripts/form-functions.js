@@ -27,6 +27,7 @@ function removeElement(parentDiv, childDiv){
 		var child = document.getElementById(childDiv);
 		var parent = document.getElementById(parentDiv);
 		parent.removeChild(child);
+		refresh_sort();
 	}
 	else {
 	  alert("Child div has already been removed or does not exist.");
@@ -84,6 +85,9 @@ function refresh_sort(){
 				//order the elements within this container.
 				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
+
+			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
+			console.log(delconf);
 		}
 
     /*
@@ -362,7 +366,7 @@ function add_input(elementNum, buildtype, containerClass) {
 						'<h3>Scrap me</h3>' +
 					'</div>' +
 					'<div class="s-container">' +
-						'<i class="fa fa-check" onClick="removeElement(\'section-' + elementNum + '\', \'container' + addincount + '\')"></i>' +
+						'<i class="fa fa-check delete-confirmation" onClick="removeElement(\'section-' + elementNum + '\', \'container' + addincount + '\')"></i>' +
 						'<i class="fa fa-close"></i>' +
 					'</div>' +
 				'</div>'+
