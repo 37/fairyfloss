@@ -141,6 +141,13 @@ function toggleDel(element, type, num) {
 	var deltarget = document.getElementById('del-' + num);
 	if (iftarget.style.display === "none"){
 
+		//swich links
+		var clickfunction = $(deltarget).closest('.fa-close').attr('onClick');
+
+		$(deltarget).closest('.label').attr('onClick', 'clickfunction');
+		$(deltarget).closest('.fa-close').prop('onClick', null);
+
+		// begin animations
 		$("#del-" + num + " > .s-container").animate({
         height: '0px'
     }, {
@@ -179,10 +186,9 @@ function toggleDel(element, type, num) {
 
 		//swich links
 		var clickfunction = $(deltarget).closest('.label').attr('onClick');
-		console.log(clickfunction);
 
 		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
-		$(deltarget).closest('.label').attr('onClick', '#');
+		$(deltarget).closest('.label').prop('onClick', null);
 
 		// Hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
