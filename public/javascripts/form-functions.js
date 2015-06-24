@@ -90,7 +90,7 @@ function refresh_sort(){
 				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
 
-			delconf.setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
+			$(delconf).setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
 		}
 
     /*
