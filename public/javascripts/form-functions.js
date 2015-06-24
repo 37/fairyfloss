@@ -186,9 +186,8 @@ function toggleDel(element, type, num) {
 
 		//swich links
 		var clickfunction = $(deltarget).closest('.label').attr('onClick');
-
-		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
 		$(deltarget).closest('.label').prop('onClick', null);
+		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
 
 		// Hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
@@ -383,7 +382,7 @@ function add_input(elementNum, buildtype, containerClass) {
 					'</div>' +
 					'<div class="s-container">' +
 						'<i class="fa fa-check delete-confirmation" onClick="removeElement(\'section-' + elementNum + '\', \'container' + addincount + '\')"></i>' +
-						'<i class="fa fa-close" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')"></i>' +
+						'<i class="fa fa-close"></i>' +
 					'</div>' +
 				'</div>'+
 			'</div>';
