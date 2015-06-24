@@ -80,7 +80,7 @@ function refresh_sort(){
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
 				//order the elements within this container.
-				inputs[i].setAttribute("name", parent + '[' + j + ']');
+				inputs[i].setAttribute("name", 'data[' + parent + '][' + j + ']');
 			}
 
 			for (i=0; i < (textareas.length); i++) {
