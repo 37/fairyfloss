@@ -20,6 +20,20 @@ var uniqator = 9000;
 //          Global important functions
 // ======================================================================================
 
+function removeElement(parentDiv, childDiv){
+	if (childDiv == parentDiv) {
+		alert("The parent div cannot be removed.");
+ 	} else if (document.getElementById(childDiv)) {
+		var child = document.getElementById(childDiv);
+		var parent = document.getElementById(parentDiv);
+		parent.removeChild(child);
+	}
+	else {
+	  alert("Child div has already been removed or does not exist.");
+	  return false;
+	}
+}
+
 Element.prototype.remove = function () {
 	this.parentElement.removeChild(this);
 };
@@ -348,7 +362,7 @@ function add_input(elementNum, buildtype, containerClass) {
 						'<h3>Scrap me</h3>' +
 					'</div>' +
 					'<div class="s-container">' +
-						'<i class="fa fa-check"></i>' +
+						'<i class="fa fa-check" onClick="removeElement(\'section-' + elementNum + '\', \'container' + addincount + '\')"></i>' +
 						'<i class="fa fa-close"></i>' +
 					'</div>' +
 				'</div>'+
