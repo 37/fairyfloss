@@ -142,6 +142,10 @@ function toggleDel(element, type, num) {
 	if (iftarget.style.display === "none"){
 
 		//swich links
+		var clickfunction = $('#del-' + num + ' > .s-container > .fa-close').attr('onclick');
+		$('#del-' + num + ' > .s-container > .fa-close').prop('onClick', null);
+		$('#del-' + num + ' > .label').attr('onClick', 'clickfunction');
+
 		var clickfunction = $(deltarget).closest('.fa-close').attr('onClick');
 
 		$(deltarget).closest('.label').attr('onClick', 'clickfunction');
@@ -186,9 +190,8 @@ function toggleDel(element, type, num) {
 
 		//swich links
 		var clickfunction = $('#del-' + num + ' > .label').attr('onclick');
-		console.log(clickfunction);
-		$(deltarget).closest('.label').prop('onClick', null);
-		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
+		$('#del-' + num + ' > .label').prop('onClick', null);
+		$('#del-' + num + ' > .s-container > .fa-close').attr('onClick', 'clickfunction');
 
 		// Hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
