@@ -185,7 +185,7 @@ function toggleDel(element, type, num) {
 	} else {
 
 		//swich links
-		var clickfunction = $(deltarget).closest('.label');
+		var clickfunction = $('#del-' + num + ' > .label').attr('onclick');
 		console.log(clickfunction);
 		$(deltarget).closest('.label').prop('onClick', null);
 		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
