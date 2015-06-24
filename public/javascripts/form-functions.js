@@ -75,8 +75,7 @@ function refresh_sort(){
 			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
 			var el = ui.endparent.children('.accordion-section')[j];
 			var elid = $(el).attr('id');
-			console.log(elid);
-			console.log(delconf);
+			
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
@@ -90,7 +89,7 @@ function refresh_sort(){
 				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
 
-			$(delconf).setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
+			$(delconf).attr("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
 		}
 
     /*
