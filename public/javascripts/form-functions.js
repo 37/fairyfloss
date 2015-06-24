@@ -27,12 +27,12 @@ function removeElement(parentDiv, childDiv){
 		var child = document.getElementById(childDiv);
 		var parent = document.getElementById(parentDiv);
 		parent.removeChild(child);
-		refresh_sort();
 	}
 	else {
 	  alert("Child div has already been removed or does not exist.");
 	  return false;
 	}
+	refresh_sort();
 }
 
 Element.prototype.remove = function () {
@@ -176,6 +176,14 @@ function toggleDel(element, type, num) {
 		});
 
 	} else {
+
+		//swich links
+		var clickfunction = $(deltarget).closest('.label').attr('onClick');
+		console.log(clickfunction);
+
+		$(deltarget).closest('.fa-close').attr('onClick', 'clickfunction');
+		$(deltarget).closest('.label').attr('onClick', '#');
+
 		// Hide conditionals
 		$(iftarget).hide("slide", { direction: "left" }, 300);
 		// Slide out delete options to full width
@@ -369,7 +377,7 @@ function add_input(elementNum, buildtype, containerClass) {
 					'</div>' +
 					'<div class="s-container">' +
 						'<i class="fa fa-check delete-confirmation" onClick="removeElement(\'section-' + elementNum + '\', \'container' + addincount + '\')"></i>' +
-						'<i class="fa fa-close"></i>' +
+						'<i class="fa fa-close" onClick="toggleDel(\'settings' + addincount + '\', \'' + buildtype + '\', \'' + addincount + '\')"></i>' +
 					'</div>' +
 				'</div>'+
 			'</div>';
