@@ -143,7 +143,7 @@ function toggleDel(element, type, num) {
 
 		//swich links
 		var clickfunction = $('#del-' + num + ' > .s-container > .fa-close').attr('onclick');
-		$('#del-' + num + ' > .s-container > .fa-close').prop('onClick', null);
+		$('#del-' + num + ' > .s-container > .fa-close').attr('onClick', null);
 		$('#del-' + num + ' > .label').attr('onClick', clickfunction);
 
 
@@ -186,7 +186,7 @@ function toggleDel(element, type, num) {
 
 		//swich links
 		var clickfunction = $('#del-' + num + ' > .label').attr('onclick');
-		$('#del-' + num + ' > .label').prop('onClick', null);
+		$('#del-' + num + ' > .label').attr('onClick', null);
 		$('#del-' + num + ' > .s-container > .fa-close').attr('onClick', clickfunction);
 
 		// Hide conditionals
