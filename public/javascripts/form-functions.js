@@ -73,7 +73,8 @@ function refresh_sort(){
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
 			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
-			var elid = ui.endparent.children('.accordion-section')[j].attr("id");
+			var elid = ui.endparent.children('.accordion-section')[j];
+			console.log(elid);
 
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
