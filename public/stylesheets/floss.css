@@ -231,6 +231,14 @@ html, body {
   overflow: hidden;
 }
 
+.el-del .s-container .fa-check {
+  color: #5CE3A1;
+}
+
+.el-del .s-container .fa-close {
+  color: #E36A5C;
+}
+
 
 
 /* -----------INPUT ELEMENTS------------- */
