@@ -72,6 +72,8 @@ function refresh_sort(){
 			// Find all inputs and textareas, binding them to an array 'order_me'.
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
+			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
+			var elid = ui.endparent.children('.accordion-section')[j].attr("id");
 
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
@@ -86,8 +88,7 @@ function refresh_sort(){
 				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
 
-			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
-			console.log(delconf);
+			delconf.setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
 		}
 
     /*
@@ -371,6 +372,7 @@ function add_input(elementNum, buildtype, containerClass) {
 					'</div>' +
 				'</div>'+
 			'</div>';
+
 		newdiv.id = "container" + addincount;
 		newdiv.className = "accordion-section " + containerClass;
 
