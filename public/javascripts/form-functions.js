@@ -75,7 +75,7 @@ function refresh_sort(){
 			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
 			var el = ui.endparent.children('.accordion-section')[j];
 			var elid = $(el).attr('id');
-			
+
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
@@ -86,10 +86,10 @@ function refresh_sort(){
 			for (i=0; i < (textareas.length); i++) {
 				console.log('inner loop');
 				//order the elements within this container.
-				textareas[i].setAttribute("name", parent + '[' + j + ']');
+				textareas[i].setAttribute("name", 'data[' + parent + '][' + j + ']');
 			}
 
-			$(delconf).attr("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
+			$(delconf).attr("onClick", 'removeElement(\'section-' + parent + '\', \'' + elid + '\')');
 		}
 
     /*
@@ -533,7 +533,7 @@ function add_section(elementName){
 				'<i class="fa fa-cog"></i>' +
 			'</a>' +
 		'</div>' +
-		'<div id="section-' + sectioncount + '" data-position="data[' + sectioncount + ']" class="section-body">' +
+		'<div id="section-' + sectioncount + '" data-position="' + sectioncount + '" class="section-body">' +
 			'<div id="settings-' + addincount + '" class="accordion-section-content">' +
 				'<h3>Options</h3>' +
 				'<p>Various settings will go here.</p>' +
