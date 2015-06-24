@@ -73,7 +73,8 @@ function refresh_sort(){
 			var inputs = ui.endparent.children('.accordion-section')[j].getElementsByTagName('input');
 			var textareas = ui.endparent.children('.accordion-section')[j].getElementsByTagName('textarea');
 			var delconf = ui.endparent.children('.accordion-section')[j].getElementsByClassName('delete-confirmation');
-			var elid = ui.endparent.children('.accordion-section')[j];
+			var el = ui.endparent.children('.accordion-section')[j];
+			var elid = el.attr('id');
 			console.log(elid);
 
 			// for each input or text area (within this element container).
@@ -89,7 +90,7 @@ function refresh_sort(){
 				textareas[i].setAttribute("name", parent + '[' + j + ']');
 			}
 
-			delconf.setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid.attr('id') + '\')');
+			delconf.setAttribute("onClick", 'removeElement(\'section-' + j + '\', \'' + elid + '\')');
 		}
 
     /*
