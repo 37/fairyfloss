@@ -188,6 +188,10 @@ html, body {
   color: #E36A5C;
 }
 
+.add-section {
+  width: calc(100% - 10px)!important;
+}
+
 .form-submit {
   position: absolute;
   bottom: 0;
