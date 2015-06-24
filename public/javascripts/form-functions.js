@@ -76,7 +76,7 @@ function refresh_sort(){
 			var el = ui.endparent.children('.accordion-section')[j];
 			var elid = $(el).attr('id');
 			console.log(elid);
-
+			console.log(delconf);
 			// for each input or text area (within this element container).
 			for (i=0; i < (inputs.length); i++) {
 				console.log('inner loop');
